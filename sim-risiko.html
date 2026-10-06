@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SIM-Risiko RSD K.R.M.T Wongsonegoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#A3161C; --red-ink:#7E0F14; --gold:#C99700; --gold-soft:#FFF4D1;
+  --ink:#1B1F23; --ink-2:#4A535C; --ink-3:#6E7781;
+  --paper:#FFFFFF; --surface:#F3F4F6; --surface-2:#E9EBEE; --line:#DADDE1;
+  --lv1:#2E75B6; --lv2:#3A9D4A; --lv3:#F2C200; --lv4:#C62828; --lv3-ink:#1B1F23;
+  --ok:#2E7D32; --warn:#B26A00; --bad:#C62828;
+  --focus:#2E75B6;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --red:#E0565B; --red-ink:#FF8A8E; --gold:#E3B33C; --gold-soft:#3A3115;
+    --ink:#ECEEF0; --ink-2:#C2C8CE; --ink-3:#98A1AA;
+    --paper:#1A1D21; --surface:#111316; --surface-2:#24282D; --line:#33383E;
+    --lv3-ink:#1B1F23; --focus:#6CB2F0; --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --red:#E0565B; --red-ink:#FF8A8E; --gold:#E3B33C; --gold-soft:#3A3115;
+  --ink:#ECEEF0; --ink-2:#C2C8CE; --ink-3:#98A1AA;
+  --paper:#1A1D21; --surface:#111316; --surface-2:#24282D; --line:#33383E;
+  --lv3-ink:#1B1F23; --focus:#6CB2F0; --shadow:none; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--surface);color:var(--ink);font:15px/1.5 "Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+a{color:var(--focus)}
+.app{display:grid;grid-template-columns:272px 1fr;min-height:100vh}
+/* sidebar */
+.side{background:var(--paper);border-right:1px solid var(--line);padding:18px 14px;display:flex;flex-direction:column;gap:14px;position:sticky;top:env(safe-area-inset-top,0px);height:100vh;overflow:auto}
+.brand{display:flex;gap:10px;align-items:center;padding:0 4px}
+.brand img{width:40px;height:auto}
+.brand b{display:block;font-size:15px;line-height:1.2}
+.brand small{color:var(--ink-3);font-size:12px;line-height:1.3;display:block}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{all:unset;cursor:pointer;display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;color:var(--ink-2);font-weight:500;font-size:14px}
+.nav button .lp{margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:500;white-space:nowrap}
+.nav button:hover{background:var(--surface)}
+.nav button[aria-current="page"]{background:var(--surface-2);color:var(--ink);font-weight:700}
+.nav button:focus-visible{outline:2px solid var(--focus)}
+.nav .grp{font-size:12px;color:var(--ink-3);padding:10px 10px 4px;font-weight:600}
+.who{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;font-size:13px;display:flex;flex-direction:column;gap:6px}
+.who .r{display:flex;align-items:center;gap:8px}
+.who img{width:28px;height:28px;border-radius:50%}
+.rolepill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700}
+.rp-L1{background:#FBE3E4;color:#7E0F14}.rp-L2{background:var(--gold-soft);color:#6B5000}.rp-L3{background:#DCEBF8;color:#1C4E7A}
+:root[data-theme="dark"] .rp-L1{background:#4A1D1F;color:#FFB3B5}
+/* main */
+.main{padding:22px 28px 40px;min-width:0}
+.topbar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+h1{font-size:26px;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.01em}
+h2{font-size:18px;margin:0 0 10px;font-weight:700}
+h3{font-size:15px;margin:0 0 6px;font-weight:700}
+.sub{color:var(--ink-3);font-size:14px;margin-top:4px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filters label{font-size:12px;color:var(--ink-3);display:flex;flex-direction:column;gap:2px}
+select,input[type=text],input[type=number],input[type=date],input[type=datetime-local],textarea{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-height:36px;max-width:100%}
+textarea{min-height:70px;resize:vertical;width:100%}
+.btn{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:7px 12px;font-weight:600;cursor:pointer;font-size:14px;min-height:36px}
+.btn:hover{background:var(--surface)}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff}
+.btn.pri:hover{filter:brightness(.95)}
+.btn.sm{padding:4px 9px;min-height:30px;font-size:13px}
+.btn.ghost{border-color:transparent;background:transparent}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1.25fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi .v{font-size:30px;font-weight:800;line-height:1.1}
+.kpi .l{font-size:13px;color:var(--ink-2)}
+.kpi .h{font-size:12px;color:var(--ink-3)}
+.kpi.alert .v{color:var(--bad)}
+.banner{border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:14px;background:var(--gold-soft);border:1px solid #E8D28A;color:var(--ink)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface);font-weight:700;font-size:13px;color:var(--ink-2);white-space:nowrap;position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right}
+.lv{display:inline-block;min-width:44px;text-align:center;padding:2px 8px;border-radius:6px;font-weight:700;font-size:13px;white-space:nowrap}
+.lv-1{background:var(--lv1);color:#fff}.lv-2{background:var(--lv2);color:#fff}.lv-3{background:var(--lv3);color:var(--lv3-ink)}.lv-4{background:var(--lv4);color:#fff}.lv-0{background:var(--surface-2);color:var(--ink-3)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap;background:var(--paper)}
+.tag.ok{border-color:#9BCB9E;color:var(--ok);background:#EEF7EE}.tag.bad{border-color:#E7A3A3;color:var(--bad);background:#FDEEEE}.tag.warn{border-color:#E6C27A;color:var(--warn);background:#FFF6E3}
+:root[data-theme="dark"] .tag.ok,:root[data-theme="dark"] .tag.bad,:root[data-theme="dark"] .tag.warn{background:transparent}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.ok,:root:not([data-theme="light"]) .tag.bad,:root:not([data-theme="light"]) .tag.warn{background:transparent}}
+.muted{color:var(--ink-3)}
+.small{font-size:13px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+.empty{padding:28px;text-align:center;color:var(--ink-2)}
+.empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+/* heatmap */
+.heat{display:grid;grid-template-columns:28px repeat(5,minmax(44px,1fr));gap:4px;align-items:stretch}
+.heat .c{aspect-ratio:1.6;border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;padding:4px 6px;cursor:pointer;border:0;text-align:left}
+.heat .c .s{font-size:11px;opacity:.8}
+.heat .c .n{font-size:22px;font-weight:800;align-self:flex-end;line-height:1}
+.heat .c.z .n{opacity:.35;font-weight:600;font-size:16px}
+.heat .ax{font-size:12px;color:var(--ink-3);display:flex;align-items:center;justify-content:center;font-weight:700}
+.heat .c:hover{filter:brightness(1.06)}
+.bars .b{display:grid;grid-template-columns:120px 1fr 44px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.bars .t{height:14px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.bars .t i{display:block;height:100%}
+.alerts li{margin:0 0 8px;font-size:14px}
+.alerts{padding-left:18px;margin:0}
+.chk{font-weight:800}
+.chk.y{color:var(--ok)}.chk.n{color:var(--bad)}.chk.na{color:var(--ink-3);font-weight:500}
+/* modal */
+dialog{border:0;border-radius:14px;padding:0;width:min(860px,94vw);max-height:90vh;background:var(--paper);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(17,19,22,.5)}
+.mh{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:2}
+.mh h2{margin:0;font-size:17px}
+.mb{padding:16px 18px;overflow:auto;max-height:calc(90vh - 130px)}
+.mf{display:flex;gap:8px;justify-content:flex-end;padding:12px 18px;border-top:1px solid var(--line);position:sticky;bottom:0;background:var(--paper)}
+.fs{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 14px}
+.fs legend{font-weight:700;padding:0 6px;font-size:14px}
+.f{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;min-width:0}
+.f > span{font-size:13px;font-weight:600;color:var(--ink-2)}
+.f .hint{font-size:12px;color:var(--ink-3)}
+.f input,.f select,.f textarea{width:100%}
+.fg{display:grid;gap:10px}
+.fg2{grid-template-columns:1fr 1fr}.fg3{grid-template-columns:repeat(3,1fr)}.fg4{grid-template-columns:repeat(4,1fr)}
+.calc{background:var(--surface);border-radius:8px;padding:8px 12px;font-size:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.rows .rr{display:grid;gap:6px;margin-bottom:6px;align-items:start}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;font-size:14px;z-index:99;max-width:90vw}
+details.g{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:0 16px;margin-bottom:10px}
+details.g summary{cursor:pointer;padding:12px 0;font-weight:700;list-style:none;display:flex;gap:10px;align-items:center}
+details.g summary::-webkit-details-marker{display:none}
+details.g summary .st{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;align-items:center;justify-content:center;font-size:13px;flex:none}
+details.g[open] summary{border-bottom:1px solid var(--line)}
+details.g .gb{padding:12px 0 14px;font-size:14px}
+details.g .gb p{margin:0 0 8px;max-width:78ch}
+details.g .gb ol,details.g .gb ul{margin:0 0 8px;padding-left:20px;max-width:78ch}
+.ex{background:var(--surface);border-radius:8px;padding:10px 12px;margin:8px 0;font-size:14px}
+.ex b{color:var(--red-ink)}
+.mobilebar{display:none}
+@media (max-width:980px){
+  .app{grid-template-columns:1fr}
+  .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .nav{flex-direction:row;overflow-x:auto;gap:4px}
+  .nav .grp{display:none}
+  .nav button{white-space:nowrap}
+  .nav button .lp{display:none}
+  .who{margin-top:0}
+  .g2,.g3{grid-template-columns:1fr}
+  .fg2,.fg3,.fg4{grid-template-columns:1fr}
+  .main{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{.side,.topbar .filters,.btn{display:none!important}.app{display:block}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="Navigasi">
+    <div class="brand"><img alt="Lambang Kota Semarang" src="data:image/png;base64,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"><div><b>SIM-Risiko</b><small>RSD K.R.M.T Wongsonegoro<br>Perdir No. 266 Tahun 2026</small></div></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="who" id="who"></div>
+  </aside>
+  <main class="main" id="main"><div class="empty"><b>Memuat SIM-Risiko…</b>Menyiapkan data rumah sakit.</div></main>
+</div>
+<dialog id="dlg"><form method="dialog" id="dlgForm" novalidate><div class="mh"><h2 id="dlgTitle"></h2><span class="spacer"></span><button class="btn ghost" value="cancel" aria-label="Tutup">✕</button></div><div class="mb" id="dlgBody"></div><div class="mf" id="dlgFoot"></div></form></dialog>
+<script>
+"use strict";
+/* ========== Utilities ========== */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+const TODAY = new Date();
+const fmtDate = (s) => { if (!s) return "–"; const d = new Date(s); return isNaN(d) ? esc(s) : d.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }); };
+const fmtDT = (s) => { if (!s) return "–"; const d = new Date(s); return isNaN(d) ? esc(s) : d.toLocaleString("id-ID", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }); };
+const pct = (a, b) => (b ? Math.round((a / b) * 100) : null);
+let toastT;
+function toast(msg) { let t = $(".toast"); if (!t) { t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); document.body.appendChild(t); } t.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 3200); }
+
+const KATEGORI = ["Klinis", "Kepatuhan", "Operasional", "Keuangan", "Strategis", "Kecurangan (fraud)", "Reputasi", "Hukum"];
+const EFEKTIF = ["Belum ada pengendalian", "Tidak efektif", "Efektif sebagian", "Efektif"];
+const JENIS = ["KPCS", "KNC", "KTC", "KTD", "Sentinel", "Non-klinis"];
+const OPSI = ["Mengurangi (mitigation)", "Menghindari (avoidance)", "Memindahkan/berbagi (transfer)", "Menerima (acceptance)"];
+const ASPEK = ["Proses manajemen risiko", "Kecukupan pengendalian", "Efektivitas pengendalian", "Kepatuhan pelaporan"];
+const ROLES = { L1: "Lini 1 · Pemilik/Pengelola Risiko", L2: "Lini 2 · Unit Manajemen Risiko", L3: "Lini 3 · Satuan Pengawasan Internal" };
+const ROLE_SHORT = { L1: "Lini 1", L2: "Lini 2 (UMR)", L3: "Lini 3 (SPI)" };
+const KTXT = ["", "Lebih dari 5 tahun sekali", "Sekali dalam 2–5 tahun", "Sekali dalam 1–2 tahun", "Beberapa kali setahun", "Setiap minggu/bulan"];
+const DTXT = ["", "Tidak signifikan: tidak cedera · ≤ Rp1 jt · gangguan 1–2 jam", "Minor: cedera ringan · ≤ Rp10 jt · gangguan 1 hari", "Moderat: cedera sedang/rawat lebih lama · ≤ Rp50 jt · ditegur Dinkes", "Mayor: cacat permanen · ≤ Rp200 jt · media lokal", "Katastropik: kematian · > Rp200 jt · tuntutan hukum/media nasional"];
+
+/* ========== State ========== */
+const COLS = ["units", "risks", "rtps", "events", "reports", "audits", "members"];
+const S = { cfg: { tahun: TODAY.getFullYear(), acuan: "3B", seleraDefault: 12 }, view: "dashboard", mode: "loading", readOnly: false, me: { id: null, role: null, unitId: null, isOwner: false, name: "", avatar: "" }, profiles: {}, f: {}, reg: {}, ui: {} };
+COLS.forEach((c) => (S[c] = {}));
+(function initPeriod() { const q = Math.floor(TODAY.getMonth() / 3) + 1; let t = TODAY.getFullYear(), tw = q - 1; if (tw === 0) { tw = 4; t -= 1; } S.f = { tahun: t, tw, unit: "all" }; })();
+
+/* ========== Level helpers (Lampiran 3) ========== */
+function lvl(sc) {
+  if (!sc) return { i: 0, n: "–" };
+  if (S.cfg.acuan === "3A") return sc <= 4 ? { i: 1, n: "Rendah" } : sc <= 9 ? { i: 2, n: "Sedang" } : sc <= 15 ? { i: 3, n: "Tinggi" } : { i: 4, n: "Sangat Tinggi" };
+  return sc <= 6 ? { i: 1, n: "Rendah" } : sc <= 12 ? { i: 2, n: "Sedang" } : sc <= 19 ? { i: 3, n: "Tinggi" } : { i: 4, n: "Sangat Tinggi" };
+}
+const WARNA = ["", "Biru", "Hijau", "Kuning", "Merah"];
+const WARNA3A = ["", "Hijau", "Kuning", "Oranye", "Merah"];
+const warna = (i) => (S.cfg.acuan === "3A" ? WARNA3A : WARNA)[i] || "–";
+const lvBadge = (sc, label) => { const L = lvl(sc); return `<span class="lv lv-${L.i}" title="${esc(L.n)}">${esc(label ?? (sc ? sc + " " + L.n : "–"))}</span>`; };
+const inh = (r) => (+r.K || 0) * (+r.D || 0);
+const res = (r) => (r.Kr && r.Dr ? +r.Kr * +r.Dr : inh(r));
+const tgt = (t) => (t.Kt && t.Dt ? +t.Kt * +t.Dt : 0);
+function konteks(unitId, tahun) { return S.units[unitId]?.konteks?.[tahun] || null; }
+function seleraMaks(unitId, tahun) { const k = konteks(unitId, tahun); return k?.selera?.maks ? +k.selera.maks : +S.cfg.seleraDefault || 12; }
+const isPrio = (r) => res(r) > seleraMaks(r.unitId, r.tahun);
+const uraian = (r) => `Kemungkinan ${r.peristiwa || "…"} yang disebabkan ${r.penyebab || "…"}, sehingga ${r.dampak || "…"}.`;
+const pkey = (t, tw) => `${t}-${tw}`;
+const pend = (k) => { const [t, tw] = String(k).split("-").map(Number); return new Date(t, tw * 3, 0, 23, 59, 59); };
+const plabel = (k) => { if (!k) return "–"; const [t, tw] = String(k).split("-"); return `TW ${["", "I", "II", "III", "IV"][+tw] || tw} ${t}`; };
+const inPeriod = (dt, t, tw) => { const d = new Date(dt); return d.getFullYear() === +t && Math.floor(d.getMonth() / 3) + 1 === +tw; };
+function rtpDone(t) { return Object.values(t.monitor || {}).some((m) => m.status === "Sudah"); }
+function rtpStatus(t) { if (rtpDone(t)) return "Selesai"; if (t.target && pend(t.target) < TODAY) return "Terlambat"; return "Berjalan"; }
+function rcaDue(r) { const base = r.validatedAt || r.createdAt; return base ? new Date(new Date(base).getTime() + 45 * 864e5) : null; }
+function needsRCA(r) { return lvl(res(r)).i >= 3; }
+function rcaState(r) { if (!needsRCA(r)) return "na"; if (r.rca?.tanggal) return "ok"; const d = rcaDue(r); return d && d < TODAY ? "late" : "open"; }
+const hours = (a, b) => (a && b ? (new Date(b) - new Date(a)) / 36e5 : null);
+const wajibSIK = (e) => e.jenis === "KTD" || e.jenis === "Sentinel";
+const wajib24 = (e) => e.jenis === "Sentinel" || !!e.signifikan;
+const ok24 = (e) => { const h = hours(e.waktuKejadian, e.waktuLapor); return h !== null && h <= 24; };
+const unitName = (id) => S.units[id]?.nama || "(unit dihapus)";
+const unitsSorted = () => Object.entries(S.units).sort((a, b) => (a[1].nama || "").localeCompare(b[1].nama || ""));
+
+/* ========== Permissions (aplikasi) ========== */
+const isAdmin = () => !S.readOnly && (S.me.role === "L2" || (S.mode === "db" && S.me.isOwner));
+const isL1 = () => S.me.role === "L1";
+const isL3 = () => S.me.role === "L3";
+function canEditUnit(unitId) { if (S.readOnly) return false; if (S.me.role === "L2") return true; return isL1() && (S.me.unitId === unitId || (S.mode === "local" && !S.me.unitId)); }
+const canValidate = () => !S.readOnly && S.me.role === "L2";
+const canAudit = () => !S.readOnly && S.me.role === "L3";
+
+/* ========== Store: db (shared) atau lokal ========== */
+let DB = null, USER = null, DL = null;
+const LKEY = "simrisiko-local-v1";
+function saveLocal() { try { const o = { cfg: S.cfg }; COLS.forEach((c) => (o[c] = S[c])); localStorage.setItem(LKEY, JSON.stringify(o)); } catch (e) {} }
+function loadLocal() { try { const o = JSON.parse(localStorage.getItem(LKEY) || "null"); if (o) { COLS.forEach((c) => (S[c] = o[c] || {})); if (o.cfg) S.cfg = Object.assign(S.cfg, o.cfg); } } catch (e) {} }
+async function put(col, id, data) {
+  data.updatedAt = new Date().toISOString();
+  if (S.mode === "db") {
+    try { await DB.collection(col).doc(id).set(data); return true; }
+    catch (e) {
+      if (e && e.code === "invalid_argument") { toast("Perubahan ditolak: akun Anda tidak memiliki hak menulis data bersama."); S.readOnly = true; render(); }
+      else if (e && e.code === "quota_exceeded") toast("Kapasitas data penuh. Hapus data lama, lalu coba lagi.");
+      else toast("Gagal menyimpan. Periksa koneksi, lalu coba lagi.");
+      return false;
+    }
+  }
+  S[col][id] = data; saveLocal(); render(); return true;
+}
+async function del(col, id) {
+  if (S.mode === "db") { try { await DB.collection(col).doc(id).delete(); return true; } catch (e) { toast("Gagal menghapus data."); return false; } }
+  delete S[col][id]; saveLocal(); render(); return true;
+}
+async function putCfg(cfg) {
+  S.cfg = cfg;
+  if (S.mode === "db") { try { await DB.doc("config/main").set(cfg); } catch (e) { toast("Gagal menyimpan pengaturan."); } }
+  else { saveLocal(); render(); }
+}
+let rq = 0;
+function render() { if (rq) return; rq = requestAnimationFrame(() => { rq = 0; doRender(); }); }
+
+async function init() {
+  const cl = window.claude;
+  if (cl && typeof cl.use === "function") {
+    try { [DB, USER, DL] = await Promise.all([cl.use("db"), cl.use("user"), cl.use("downloads")]); } catch (e) {}
+  }
+  let id = null;
+  if (DB && USER) { try { id = await USER.id(); } catch (e) {} }
+  if (DB && id) {
+    S.mode = "db";
+    const me = await USER.me();
+    S.me.id = id; S.me.isOwner = !!me.isOwner; S.me.name = me.name || ""; S.me.avatar = me.avatarUrl || "";
+    try { const w = await USER.can("data.write"); if (w === false) S.readOnly = true; } catch (e) {}
+    DB.doc("config/main").onSnapshot((d) => { if (d.exists) S.cfg = Object.assign({ tahun: TODAY.getFullYear(), acuan: "3B", seleraDefault: 12 }, d.data()); render(); }, () => {});
+    COLS.forEach((c) => {
+      DB.collection(c).onSnapshot((snap) => {
+        const o = {}; snap.docs.forEach((d) => (o[d.id] = d.data())); S[c] = o;
+        if (c === "members") { const m = o[S.me.id]; S.me.role = m?.role || null; S.me.unitId = m?.unitId || null; refreshProfiles(); }
+        S.loaded = S.loaded || {}; S.loaded[c] = true; render();
+      }, (e) => { if (e && e.code === "revoked") { S.mode = "revoked"; render(); } });
+    });
+  } else {
+    S.mode = "local"; loadLocal(); S.me.role = S.ui.localRole || "L2"; S.loaded = {}; COLS.forEach((c) => (S.loaded[c] = true));
+  }
+  render();
+}
+async function refreshProfiles() {
+  if (!USER || !USER.profiles) return;
+  const ids = Object.keys(S.members); if (!ids.length) return;
+  try { S.profiles = await USER.profiles(ids); render(); } catch (e) {}
+}
+const personName = (id) => (id === S.me.id ? (S.me.name || "Anda") : (S.profiles[id]?.name || "Pengguna"));
+
+/* ========== Navigation ========== */
+const VIEWS = [
+  ["grp", "Ringkasan"],
+  ["dashboard", "Dasbor pemantauan", ""],
+  ["grp", "Proses (Lini 1)"],
+  ["konteks", "Konteks unit", "Lamp. 1"],
+  ["register", "Register risiko", "Lamp. 2–4"],
+  ["rca", "Analisis akar masalah", "Lamp. 6"],
+  ["rtp", "Rencana tindak (RTP)", "Lamp. 5, 7"],
+  ["events", "Peristiwa & insiden", "Lamp. 8"],
+  ["grp", "Pelaporan (Lini 1–2)"],
+  ["reports", "Laporan triwulan", "Lamp. 9, 10"],
+  ["grp", "Pengawasan (Lini 3)"],
+  ["spi", "Pengawasan SPI", ""],
+  ["grp", "Bantuan"],
+  ["guide", "Panduan pengisian", ""],
+  ["settings", "Pengaturan", ""],
+];
+function renderNav() {
+  $("#nav").innerHTML = VIEWS.map((v) => (v[0] === "grp" ? `<div class="grp">${esc(v[1])}</div>` : `<button data-act="go" data-v="${v[0]}" ${S.view === v[0] ? 'aria-current="page"' : ""}>${esc(v[1])}<span class="lp">${esc(v[2])}</span></button>`)).join("");
+  const role = S.me.role;
+  let who = "";
+  if (S.mode === "local") {
+    who = `<div class="small muted">Mode lokal: data hanya tersimpan di perangkat ini.</div><label class="f"><span>Coba sebagai</span><select data-act="localrole">${Object.entries(ROLES).map(([k, v]) => `<option value="${k}" ${role === k ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></label>`;
+    if (role === "L1") who += `<label class="f"><span>Unit</span><select data-act="localunit"><option value="">Pilih unit</option>${unitsSorted().map(([id, u]) => `<option value="${id}" ${S.me.unitId === id ? "selected" : ""}>${esc(u.nama)}</option>`).join("")}</select></label>`;
+  } else {
+    who = `<div class="r">${S.me.avatar ? `<img alt="" src="${esc(S.me.avatar)}">` : ""}<div><b>${esc(S.me.name || "Anda")}</b><br>${role ? `<span class="rolepill rp-${role}">${esc(ROLE_SHORT[role])}</span>` : `<span class="muted">Peran belum dipilih</span>`}</div></div>`;
+    if (role === "L1" && S.me.unitId) who += `<div class="small muted">${esc(unitName(S.me.unitId))}</div>`;
+    who += `<button class="btn sm" data-act="pickrole">Ubah peran</button>`;
+    if (S.readOnly) who += `<div class="small muted">Akses baca saja.</div>`;
+  }
+  $("#who").innerHTML = who;
+}
+
+/* ========== Shared UI pieces ========== */
+function filterBar(opts = {}) {
+  const yrs = new Set([S.cfg.tahun, S.f.tahun, TODAY.getFullYear(), TODAY.getFullYear() - 1]);
+  Object.values(S.risks).forEach((r) => r.tahun && yrs.add(+r.tahun));
+  const ys = [...yrs].sort();
+  let h = `<div class="filters"><label>Tahun<select data-filter="tahun">${ys.map((y) => `<option ${+S.f.tahun === y ? "selected" : ""}>${y}</option>`).join("")}</select></label>`;
+  if (opts.tw !== false) h += `<label>Triwulan<select data-filter="tw">${[1, 2, 3, 4].map((t) => `<option value="${t}" ${+S.f.tw === t ? "selected" : ""}>TW ${["", "I", "II", "III", "IV"][t]}</option>`).join("")}</select></label>`;
+  if (opts.unit !== false) h += `<label>Unit<select data-filter="unit"><option value="all">Semua unit</option>${unitsSorted().map(([id, u]) => `<option value="${id}" ${S.f.unit === id ? "selected" : ""}>${esc(u.nama)}</option>`).join("")}</select></label>`;
+  return h + `</div>`;
+}
+const head = (title, sub, extra = "") => `<div class="topbar"><div><h1>${esc(title)}</h1>${sub ? `<div class="sub">${sub}</div>` : ""}</div>${extra}</div>`;
+const unitFilterOk = (unitId) => S.f.unit === "all" || S.f.unit === unitId;
+const risksY = () => Object.entries(S.risks).filter(([, r]) => +r.tahun === +S.f.tahun && unitFilterOk(r.unitId));
+const rtpsY = () => Object.entries(S.rtps).filter(([, t]) => { const r = S.risks[t.riskId]; return r && +r.tahun === +S.f.tahun && unitFilterOk(t.unitId); });
+const eventsP = (all) => Object.entries(S.events).filter(([, e]) => unitFilterOk(e.unitId) && (all ? new Date(e.waktuKejadian).getFullYear() === +S.f.tahun : inPeriod(e.waktuKejadian, S.f.tahun, S.f.tw)));
+const emptyBox = (t, d, btn = "") => `<div class="panel empty"><b>${t}</b>${d}${btn ? `<div style="margin-top:12px">${btn}</div>` : ""}</div>`;
+const statusTag = (s) => { const m = { "Tervalidasi": "ok", "Selesai": "ok", "Dikirim": "ok", "Terlambat": "bad", "Perlu revisi": "bad", "Terbuka": "bad", "Diajukan": "warn", "Berjalan": "", "Draf": "", "Dalam tindak lanjut": "warn" }; return `<span class="tag ${m[s] || ""}">${esc(s || "Draf")}</span>`; };
+
+/* ========== Compliance (dipakai Dasbor & SPI) ========== */
+function compliance(unitId, t, tw) {
+  const k = konteks(unitId, t);
+  const rs = Object.entries(S.risks).filter(([, r]) => r.unitId === unitId && +r.tahun === +t);
+  const rt = Object.entries(S.rtps).filter(([, x]) => x.unitId === unitId && S.risks[x.riskId] && +S.risks[x.riskId].tahun === +t);
+  const ev = Object.values(S.events).filter((e) => e.unitId === unitId && new Date(e.waktuKejadian).getFullYear() === +t);
+  const prio = rs.filter(([, r]) => isPrio(r));
+  const rep = S.reports[`${unitId}_${pkey(t, tw)}`];
+  const sik = ev.filter(wajibSIK), w24 = ev.filter(wajib24);
+  const c = [
+    ["Konteks unit (Lamp. 1) lengkap", !!(k && k.visi && (k.sasaran || []).length && k.selera?.maks)],
+    ["Risiko teridentifikasi", rs.length > 0],
+    ["Semua risiko tervalidasi UMR", rs.length ? rs.every(([, r]) => r.status === "Tervalidasi") : null],
+    ["Risiko prioritas memiliki RTP", prio.length ? prio.every(([id]) => rt.some(([, x]) => x.riskId === id)) : null],
+    ["RCA risiko Tinggi/Sangat Tinggi ≤ 45 hari", rs.some(([, r]) => needsRCA(r)) ? rs.every(([, r]) => rcaState(r) !== "late") : null],
+    ["Tidak ada RTP terlambat", rt.length ? rt.every(([, x]) => rtpStatus(x) !== "Terlambat") : null],
+    [`Laporan ${plabel(pkey(t, tw))} dikirim`, rep?.status === "Dikirim"],
+    ["KTD/Sentinel dilaporkan ke SIK", sik.length ? sik.every((e) => e.sik === "Ya") : null],
+    ["Sentinel/kejadian signifikan dilaporkan ≤ 1×24 jam", w24.length ? w24.every(ok24) : null],
+  ];
+  const app = c.filter((x) => x[1] !== null), pass = app.filter((x) => x[1]).length;
+  return { items: c, score: pct(pass, app.length) };
+}
+
+/* ========== VIEW: Dasbor ========== */
+function vDashboard() {
+  const rs = risksY(), rt = rtpsY(), evY = eventsP(true), evP = eventsP(false), key = pkey(S.f.tahun, S.f.tw);
+  const prio = rs.filter(([, r]) => isPrio(r));
+  const merah = rs.filter(([, r]) => lvl(res(r)).i === 4);
+  const due = rt.filter(([, t]) => t.target === key);
+  const dueDone = due.filter(([, t]) => rtpDone(t));
+  const late = rt.filter(([, t]) => rtpStatus(t) === "Terlambat");
+  const ktd = evP.filter(([, e]) => wajibSIK(e));
+  const units = unitsSorted().filter(([id]) => unitFilterOk(id));
+  const comps = units.map(([id]) => compliance(id, S.f.tahun, S.f.tw).score).filter((x) => x !== null);
+  const avgC = comps.length ? Math.round(comps.reduce((a, b) => a + b, 0) / comps.length) : null;
+  const sub = `Data ${S.f.unit === "all" ? "seluruh unit" : esc(unitName(S.f.unit))}, tahun ${S.f.tahun}, periode ${plabel(key)}. Level memakai Lampiran ${esc(S.cfg.acuan)}.`;
+  let h = head("Dasbor pemantauan", sub, filterBar());
+  if (!Object.keys(S.units).length) return h + emptyBox("Belum ada unit kerja", "Tambahkan unit kerja di Pengaturan agar setiap Lini 1 dapat mulai mengisi konteks dan register risiko.", isAdmin() ? `<button class="btn pri" data-act="go" data-v="settings">Buka pengaturan</button>` : "");
+  h += `<div class="kpis">
+    ${kpi(rs.length, "Risiko teridentifikasi", `${rs.filter(([, r]) => r.status === "Tervalidasi").length} tervalidasi UMR`)}
+    ${kpi(prio.length, "Risiko prioritas", "Residu di atas selera unit")}
+    ${kpi(merah.length, "Risiko merah", "Sangat Tinggi, eskalasi Direktur", merah.length > 0)}
+    ${kpi(pct(dueDone.length, due.length) === null ? "–" : pct(dueDone.length, due.length) + "%", "Realisasi RTP " + plabel(key), `${dueDone.length} dari ${due.length} jatuh tempo`)}
+    ${kpi(late.length, "RTP terlambat", "Lewat target, belum selesai", late.length > 0)}
+    ${kpi(evP.length, "Peristiwa " + plabel(key), `${ktd.length} KTD/Sentinel`)}
+    ${kpi(avgC === null ? "–" : avgC + "%", "Kepatuhan proses", "Rata-rata indeks per unit", avgC !== null && avgC < 70)}
+  </div>`;
+  // heatmap
+  const cnt = {}; rs.forEach(([, r]) => { const k = (r.Kr || r.K) + "-" + (r.Dr || r.D); cnt[k] = (cnt[k] || 0) + 1; });
+  let hm = `<div class="heat" role="grid" aria-label="Peta risiko residu">`;
+  for (let k = 5; k >= 1; k--) { hm += `<div class="ax">${k}</div>`; for (let d = 1; d <= 5; d++) { const L = lvl(k * d), n = cnt[k + "-" + d] || 0; hm += `<button class="c lv-${L.i} ${n ? "" : "z"}" data-act="heat" data-k="${k}" data-d="${d}" title="K${k} × D${d} = ${k * d} (${L.n}): ${n} risiko"><span class="s">${k * d}</span><span class="n">${n}</span></button>`; } }
+  hm += `<div></div>${[1, 2, 3, 4, 5].map((d) => `<div class="ax">${d}</div>`).join("")}</div><div class="row small muted" style="margin-top:6px"><span>Baris: Kemungkinan (K)</span><span class="spacer"></span><span>Kolom: Dampak (D)</span></div>`;
+  const dist = [4, 3, 2, 1].map((i) => [i, rs.filter(([, r]) => lvl(res(r)).i === i).length]);
+  const mx = Math.max(1, ...dist.map((x) => x[1]));
+  const LVN = ["", "Rendah", "Sedang", "Tinggi", "Sangat Tinggi"];
+  const bars = dist.map(([i, n]) => `<div class="b"><span>${LVN[i]} (${warna(i)})</span><span class="t"><i class="lv-${i}" style="width:${(n / mx) * 100}%"></i></span><b class="num">${n}</b></div>`).join("");
+  const top = [...rs].sort((a, b) => res(b[1]) - res(a[1]) || (b[1].Dr || b[1].D) - (a[1].Dr || a[1].D)).filter(([, r]) => isPrio(r)).slice(0, 5);
+  h += `<div class="grid g2" style="margin-bottom:14px"><div class="panel"><h2>Peta risiko residu</h2><p class="small muted" style="margin:0 0 10px">Angka di tengah sel adalah jumlah risiko. Pilih sel untuk membuka daftarnya di register.</p>${hm}</div>
+    <div class="panel"><h2>Distribusi level residu</h2><div class="bars">${bars}</div>
+    <h2 style="margin-top:16px">Lima risiko prioritas teratas</h2>${top.length ? `<ol style="margin:0;padding-left:20px">${top.map(([id, r]) => `<li style="margin-bottom:6px">${lvBadge(res(r), String(res(r)))} <a href="#" data-act="openrisk" data-id="${id}">${esc(r.kode || "(belum berkode)")}</a> ${esc(r.peristiwa)} <span class="muted small">· ${esc(unitName(r.unitId))}</span></li>`).join("")}</ol>` : `<p class="muted small">Belum ada risiko di atas selera.</p>`}</div></div>`;
+  // alerts + incidents
+  const al = alerts(rs, rt, evY, key);
+  const jc = JENIS.map((j) => [j, evP.filter(([, e]) => e.jenis === j).length]);
+  const jm = Math.max(1, ...jc.map((x) => x[1]));
+  h += `<div class="grid g2" style="margin-bottom:14px"><div class="panel"><h2>Perlu tindakan</h2>${al.length ? `<ul class="alerts">${al.map((a) => `<li><span class="rolepill rp-${a.r}">${ROLE_SHORT[a.r]}</span> ${a.t}</li>`).join("")}</ul>` : `<p class="muted">Tidak ada tindakan tertunda untuk filter ini.</p>`}</div>
+    <div class="panel"><h2>Peristiwa ${plabel(key)} menurut jenis</h2><div class="bars">${jc.map(([j, n]) => `<div class="b"><span>${j}</span><span class="t"><i style="width:${(n / jm) * 100}%;background:${j === "Sentinel" ? "var(--lv4)" : j === "KTD" ? "#E8711A" : "var(--ink-3)"}"></i></span><b class="num">${n}</b></div>`).join("")}</div>
+    <p class="small muted" style="margin:8px 0 0">KTD dan Sentinel wajib dilaporkan ke e-report Kemenkes. Sentinel dan kejadian signifikan wajib dilaporkan ke Direktur dan UMR paling lambat 1×24 jam.</p></div></div>`;
+  // per unit
+  h += `<div class="panel"><h2>Ringkasan per unit</h2><div class="tablewrap"><table><thead><tr><th>Unit</th><th class="num">Risiko</th><th class="num">Prioritas</th><th class="num">Merah</th><th>RTP selesai</th><th class="num">RTP terlambat</th><th class="num">Peristiwa ${plabel(key)}</th><th>Laporan ${plabel(key)}</th><th class="num">Kepatuhan</th></tr></thead><tbody>${units.map(([id, u]) => {
+    const r = Object.entries(S.risks).filter(([, x]) => x.unitId === id && +x.tahun === +S.f.tahun);
+    const t = Object.entries(S.rtps).filter(([, x]) => x.unitId === id && S.risks[x.riskId] && +S.risks[x.riskId].tahun === +S.f.tahun);
+    const e = Object.values(S.events).filter((x) => x.unitId === id && inPeriod(x.waktuKejadian, S.f.tahun, S.f.tw));
+    const rep = S.reports[`${id}_${key}`]; const c = compliance(id, S.f.tahun, S.f.tw).score;
+    return `<tr><td><a href="#" data-act="unitfilter" data-id="${id}">${esc(u.nama)}</a></td><td class="num">${r.length}</td><td class="num">${r.filter(([, x]) => isPrio(x)).length}</td><td class="num">${r.filter(([, x]) => lvl(res(x)).i === 4).length}</td><td>${t.filter(([, x]) => rtpDone(x)).length} / ${t.length}</td><td class="num">${t.filter(([, x]) => rtpStatus(x) === "Terlambat").length}</td><td class="num">${e.length}</td><td>${statusTag(rep?.status || "Belum dibuat")}</td><td class="num">${c === null ? "–" : `<b style="color:${c >= 80 ? "var(--ok)" : c >= 60 ? "var(--warn)" : "var(--bad)"}">${c}%</b>`}</td></tr>`;
+  }).join("")}</tbody></table></div></div>`;
+  return h;
+}
+const kpi = (v, l, hint, alert) => `<div class="kpi ${alert ? "alert" : ""}"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div><div class="h">${esc(hint)}</div></div>`;
+function alerts(rs, rt, ev, key) {
+  const a = [];
+  const draf = rs.filter(([, r]) => !r.status || r.status === "Draf"); if (draf.length) a.push({ r: "L1", t: `${draf.length} risiko masih draf dan belum diajukan ke UMR.` });
+  const rev = rs.filter(([, r]) => r.status === "Perlu revisi"); if (rev.length) a.push({ r: "L1", t: `${rev.length} risiko dikembalikan UMR untuk direvisi.` });
+  const diaj = rs.filter(([, r]) => r.status === "Diajukan"); if (diaj.length) a.push({ r: "L2", t: `${diaj.length} risiko menunggu validasi dan kode risiko dari UMR.` });
+  const noRtp = rs.filter(([id, r]) => isPrio(r) && !Object.values(S.rtps).some((t) => t.riskId === id)); if (noRtp.length) a.push({ r: "L1", t: `${noRtp.length} risiko prioritas belum memiliki RTP.` });
+  const rl = rs.filter(([, r]) => rcaState(r) === "late"); if (rl.length) a.push({ r: "L1", t: `${rl.length} risiko Tinggi/Sangat Tinggi belum selesai RCA lebih dari 45 hari.` });
+  const ro = rs.filter(([, r]) => rcaState(r) === "open"); if (ro.length) a.push({ r: "L1", t: `${ro.length} RCA sedang berjalan, masih dalam batas 45 hari.` });
+  const merah = rs.filter(([, r]) => lvl(res(r)).i === 4); if (merah.length) a.push({ r: "L2", t: `${merah.length} risiko Sangat Tinggi perlu dieskalasi ke Direktur.` });
+  const late = rt.filter(([, t]) => rtpStatus(t) === "Terlambat"); if (late.length) a.push({ r: "L1", t: `${late.length} RTP terlambat dari target triwulan.` });
+  const sik = ev.filter(([, e]) => wajibSIK(e) && e.sik !== "Ya"); if (sik.length) a.push({ r: "L1", t: `${sik.length} KTD/Sentinel belum dilaporkan ke SIK (e-report Kemenkes).` });
+  const l24 = ev.filter(([, e]) => wajib24(e) && !ok24(e)); if (l24.length) a.push({ r: "L1", t: `${l24.length} sentinel/kejadian signifikan tidak tercatat dilaporkan ≤ 1×24 jam.` });
+  const units = unitsSorted().filter(([id]) => unitFilterOk(id));
+  const noRep = units.filter(([id]) => S.reports[`${id}_${key}`]?.status !== "Dikirim"); if (noRep.length && pend(key) < TODAY) a.push({ r: "L1", t: `${noRep.length} unit belum mengirim laporan ${plabel(key)}.` });
+  if (pend(key) < TODAY && S.reports[`UMR_${key}`]?.status !== "Dikirim" && S.f.unit === "all") a.push({ r: "L2", t: `Laporan konsolidasi UMR ${plabel(key)} belum dikirim ke Direktur.` });
+  const au = Object.values(S.audits).filter((x) => unitFilterOk(x.unitId) && x.status !== "Selesai"); if (au.length) a.push({ r: "L3", t: `${au.length} temuan SPI masih terbuka atau dalam tindak lanjut.` });
+  return a;
+}
+
+/* ========== VIEW: Konteks (Lampiran 1) ========== */
+function vKonteks() {
+  let h = head("Konteks unit kerja", `Lampiran 1 · Tahun ${S.f.tahun}. Isi di awal tahun: sasaran, proses bisnis, pemangku kepentingan, dan selera risiko unit.`, filterBar({ tw: false }));
+  const units = unitsSorted().filter(([id]) => unitFilterOk(id));
+  if (!units.length) return h + emptyBox("Belum ada unit kerja", "Tambahkan unit kerja di Pengaturan.");
+  h += `<div class="grid">` + units.map(([id, u]) => {
+    const k = konteks(id, S.f.tahun);
+    const ed = canEditUnit(id) ? `<button class="btn sm ${k ? "" : "pri"}" data-act="editkonteks" data-id="${id}">${k ? "Ubah konteks" : "Isi konteks"}</button>` : "";
+    if (!k) return `<div class="panel"><div class="row"><h2 style="margin:0">${esc(u.nama)}</h2><span class="spacer"></span>${ed}</div><p class="muted small" style="margin:8px 0 0">Konteks tahun ${S.f.tahun} belum diisi. Pemilik risiko: ${esc(u.pemilik || "–")}.</p></div>`;
+    const L = lvl(+k.selera?.maks);
+    return `<div class="panel"><div class="row"><h2 style="margin:0">${esc(u.nama)}</h2><span class="tag">Pemilik risiko: ${esc(u.pemilik || "–")}</span><span class="spacer"></span>${ed}</div>
+      <p style="margin:10px 0"><b>Visi dan misi unit.</b> ${esc(k.visi || "–")}</p>
+      <div class="grid g2"><div><h3>Sasaran / IKU</h3>${miniTable(["Sasaran", "Target", "Indikator", "Mutu nasional"], (k.sasaran || []).map((s) => [s.sasaran, s.target, s.indikator, s.nasional]))}</div>
+      <div><h3>Proses bisnis utama</h3>${miniTable(["Proses", "Output", "Risiko terkait"], (k.proses || []).map((s) => [s.proses, s.output, s.risiko]))}</div></div>
+      <div class="grid g2" style="margin-top:10px"><div><h3>Pemangku kepentingan</h3>${miniTable(["Pihak", "Ekspektasi", "Risiko dikhawatirkan"], (k.stakeholder || []).map((s) => [s.pihak, s.harapan, s.risiko]))}</div>
+      <div><h3>Selera risiko unit</h3><p style="margin:0 0 6px">${esc(k.selera?.kalimat || "–")}</p><p style="margin:0">Batas maksimal yang diterima: ${lvBadge(+k.selera?.maks, `≤ ${k.selera?.maks} ${L.n}`)}</p><p class="small muted">Risiko dengan skor residu di atas batas ini otomatis menjadi prioritas dan wajib RTP.</p></div></div></div>`;
+  }).join("") + `</div>`;
+  return h;
+}
+const miniTable = (hd, rows) => rows.length ? `<div class="tablewrap"><table><thead><tr>${hd.map((x) => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c || "–")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : `<p class="muted small">Belum diisi.</p>`;
+
+/* ========== VIEW: Register (Lampiran 4) ========== */
+function vRegister() {
+  const canAdd = !S.readOnly && (S.me.role === "L2" || isL1()) && Object.keys(S.units).length;
+  let h = head("Register risiko", `Lampiran 2–4 · Tahun ${S.f.tahun}. Identifikasi, analisis inheren dan residu, lalu ajukan ke UMR untuk validasi.`, `<div class="row">${filterBar({ tw: false })}${canAdd ? `<button class="btn pri" data-act="newrisk">Tambah risiko</button>` : ""}<button class="btn" data-act="csvreg">Unduh CSV</button></div>`);
+  let rs = risksY();
+  const rf = S.reg;
+  if (rf.k) rs = rs.filter(([, r]) => +(r.Kr || r.K) === +rf.k && +(r.Dr || r.D) === +rf.d);
+  if (rf.status) rs = rs.filter(([, r]) => (r.status || "Draf") === rf.status);
+  if (rf.prio) rs = rs.filter(([, r]) => isPrio(r));
+  rs.sort((a, b) => res(b[1]) - res(a[1]));
+  h += `<div class="row" style="margin-bottom:10px"><label class="small">Status <select data-act="regstatus"><option value="">Semua</option>${["Draf", "Diajukan", "Perlu revisi", "Tervalidasi"].map((s) => `<option ${rf.status === s ? "selected" : ""}>${s}</option>`).join("")}</select></label><label class="small row"><input type="checkbox" data-act="regprio" ${rf.prio ? "checked" : ""}> Hanya prioritas</label>${rf.k ? `<span class="tag warn">Sel K${rf.k} × D${rf.d}</span><button class="btn sm" data-act="clearheat">Hapus filter sel</button>` : ""}<span class="spacer"></span><span class="small muted">${rs.length} risiko</span></div>`;
+  if (!rs.length) return h + emptyBox("Belum ada risiko untuk filter ini", "Mulai dari sasaran di Lampiran 1, lalu tulis risiko dengan pola: kemungkinan [peristiwa] yang disebabkan [penyebab], sehingga [dampak].", canAdd ? `<button class="btn pri" data-act="newrisk">Tambah risiko</button>` : "");
+  h += `<div class="tablewrap"><table><thead><tr><th>No</th><th>Kode</th><th>Unit / sasaran</th><th style="min-width:280px">Uraian risiko</th><th>Kategori</th><th class="num">K</th><th class="num">D</th><th>Inheren</th><th>Warna</th><th>Residu</th><th>Ket.</th><th>Validasi</th><th>RCA</th><th></th></tr></thead><tbody>`;
+  h += rs.map(([id, r], i) => {
+    const L = lvl(inh(r)), rc = rcaState(r);
+    const rcaT = rc === "na" ? `<span class="muted small">Tidak wajib</span>` : rc === "ok" ? `<span class="tag ok">Selesai</span>` : rc === "late" ? `<span class="tag bad">Lewat 45 hari</span>` : `<span class="tag warn">Batas ${fmtDate(rcaDue(r))}</span>`;
+    return `<tr><td>${i + 1}</td><td>${esc(r.kode || "–")}${r.contoh ? ` <span class="tag">contoh</span>` : ""}</td><td><b>${esc(unitName(r.unitId))}</b><br><span class="small muted">${esc(r.sasaran || "–")}</span></td><td>${esc(uraian(r))}</td><td>${esc(r.kategori || "–")}</td><td class="num">${esc(r.K)}</td><td class="num">${esc(r.D)}</td><td>${lvBadge(inh(r))}</td><td>${warna(L.i)}</td><td>${lvBadge(res(r))}</td><td>${isPrio(r) ? `<span class="tag bad">Prioritas</span>` : `<span class="tag">Tidak</span>`}<br><span class="small muted">selera ≤ ${seleraMaks(r.unitId, r.tahun)}</span></td><td>${statusTag(r.status)}</td><td>${rcaT}</td><td><div class="row"><button class="btn sm" data-act="openrisk" data-id="${id}">Buka</button>${needsRCA(r) || isPrio(r) ? `<button class="btn sm" data-act="editrca" data-id="${id}">RCA</button>` : ""}</div></td></tr>`;
+  }).join("");
+  h += `</tbody></table></div><p class="small muted">K × D dihitung otomatis. Warna dan level mengikuti Lampiran ${esc(S.cfg.acuan)}. Ket. "Prioritas" muncul bila skor residu melebihi selera risiko unit pada Lampiran 1.</p>`;
+  return h;
+}
+
+/* ========== VIEW: RCA list (Lampiran 6) ========== */
+function vRCA() {
+  let h = head("Analisis akar masalah (RCA)", "Lampiran 6 · Wajib untuk risiko residu Tinggi dan Sangat Tinggi, paling lama 45 hari sejak risiko divalidasi. Risiko prioritas level Sedang cukup analisis sederhana.", filterBar({ tw: false }));
+  const rs = risksY().filter(([, r]) => needsRCA(r) || isPrio(r)).sort((a, b) => res(b[1]) - res(a[1]));
+  if (!rs.length) return h + emptyBox("Belum ada risiko yang memerlukan RCA", "RCA muncul di sini setelah ada risiko prioritas atau risiko residu Tinggi/Sangat Tinggi di register.");
+  h += `<div class="tablewrap"><table><thead><tr><th>Kode</th><th>Unit</th><th>Risiko</th><th>Residu</th><th>Batas RCA</th><th>Akar penyebab</th><th>Status</th><th></th></tr></thead><tbody>` + rs.map(([id, r]) => {
+    const st = rcaState(r);
+    return `<tr><td>${esc(r.kode || "–")}</td><td>${esc(unitName(r.unitId))}</td><td>${esc(r.peristiwa)}</td><td>${lvBadge(res(r))}</td><td>${needsRCA(r) ? fmtDate(rcaDue(r)) : `<span class="muted small">Tidak wajib 45 hari</span>`}</td><td>${esc(r.rca?.akar || "–")}</td><td>${st === "ok" ? `<span class="tag ok">Selesai ${fmtDate(r.rca.tanggal)}</span>` : st === "late" ? `<span class="tag bad">Lewat batas</span>` : r.rca?.akar ? `<span class="tag warn">Draf</span>` : `<span class="tag">Belum</span>`}</td><td><button class="btn sm" data-act="editrca" data-id="${id}">${r.rca ? "Buka" : "Isi RCA"}</button></td></tr>`;
+  }).join("") + `</tbody></table></div>`;
+  return h;
+}
+
+/* ========== VIEW: RTP (Lampiran 5 & 7) ========== */
+function vRTP() {
+  const key = pkey(S.f.tahun, S.f.tw);
+  const canAdd = !S.readOnly && (S.me.role === "L2" || isL1());
+  let h = head("Rencana tindak pengendalian", `Lampiran 5 dan 7 · Susun RTP untuk risiko prioritas, lalu catat realisasinya setiap triwulan. Periode pemantauan: ${plabel(key)}.`, `<div class="row">${filterBar()}${canAdd ? `<button class="btn pri" data-act="newrtp">Tambah RTP</button>` : ""}</div>`);
+  const rt = rtpsY().sort((a, b) => String(a[1].target).localeCompare(String(b[1].target)));
+  const noRtp = risksY().filter(([id, r]) => isPrio(r) && !Object.values(S.rtps).some((t) => t.riskId === id));
+  if (noRtp.length) h += `<div class="banner"><b>${noRtp.length} risiko prioritas belum memiliki RTP:</b> ${noRtp.map(([id, r]) => `<a href="#" data-act="newrtp" data-risk="${id}">${esc(r.kode || r.peristiwa)}</a>`).join(", ")}.</div>`;
+  if (!rt.length) return h + emptyBox("Belum ada RTP", "RTP disusun untuk setiap risiko prioritas, dengan akar penyebab, kegiatan, penanggung jawab, indikator, target triwulan, dan estimasi level setelah tindakan.", canAdd ? `<button class="btn pri" data-act="newrtp">Tambah RTP</button>` : "");
+  h += `<div class="tablewrap"><table><thead><tr><th>Kode risiko</th><th>Unit</th><th style="min-width:220px">Kegiatan pengendalian</th><th>Akar penyebab</th><th>Penanggung jawab</th><th>Indikator</th><th>Target</th><th>Target risiko</th><th>Realisasi ${plabel(key)}</th><th>Status</th><th></th></tr></thead><tbody>` + rt.map(([id, t]) => {
+    const r = S.risks[t.riskId] || {}, m = (t.monitor || {})[key], st = rtpStatus(t);
+    return `<tr><td>${esc(r.kode || "–")}</td><td>${esc(unitName(t.unitId))}</td><td>${esc(t.kegiatan)}<br><span class="small muted">${esc(t.opsi || "")}</span></td><td>${esc(t.akar || "–")}</td><td>${esc(t.pj || "–")}</td><td>${esc(t.indikator || "–")}</td><td>${plabel(t.target)}</td><td>${tgt(t) ? lvBadge(tgt(t), `${t.Kt}×${t.Dt} = ${tgt(t)}`) : "–"}</td><td>${m ? `<b>${esc(m.status)}</b>${m.hambatan ? `<br><span class="small">Hambatan: ${esc(m.hambatan)}</span>` : ""}${m.tindak ? `<br><span class="small muted">Tindak lanjut: ${esc(m.tindak)}</span>` : ""}` : `<span class="muted small">Belum dicatat</span>`}</td><td>${statusTag(st)}</td><td><div class="row">${canEditUnit(t.unitId) ? `<button class="btn sm pri" data-act="monitor" data-id="${id}">Catat realisasi</button><button class="btn sm" data-act="editrtp" data-id="${id}">Ubah</button>` : `<button class="btn sm" data-act="editrtp" data-id="${id}">Lihat</button>`}</div></td></tr>`;
+  }).join("") + `</tbody></table></div><p class="small muted">Status "Terlambat" muncul otomatis bila target triwulan sudah lewat dan realisasi belum "Sudah". Terlaksana belum tentu efektif: catat indikator yang belum tercapai di kolom hambatan.</p>`;
+  return h;
+}
+
+/* ========== VIEW: Peristiwa (Lampiran 8) ========== */
+function vEvents() {
+  const canAdd = !S.readOnly && (S.me.role === "L2" || isL1()) && Object.keys(S.units).length;
+  let h = head("Peristiwa risiko dan insiden", `Lampiran 8 · Catat setiap kejadian, klinis maupun non-klinis. Periode: ${plabel(pkey(S.f.tahun, S.f.tw))}.`, `<div class="row">${filterBar()}${canAdd ? `<button class="btn pri" data-act="newevent">Catat peristiwa</button>` : ""}</div>`);
+  const ev = eventsP(false).sort((a, b) => String(b[1].waktuKejadian).localeCompare(String(a[1].waktuKejadian)));
+  if (!ev.length) return h + emptyBox("Belum ada peristiwa pada periode ini", "Catat KPCS, KNC, KTC, KTD, Sentinel, dan peristiwa non-klinis seperti klaim gagal bayar, keluhan viral, atau somasi.", canAdd ? `<button class="btn pri" data-act="newevent">Catat peristiwa</button>` : "");
+  h += `<div class="tablewrap"><table><thead><tr><th>Waktu kejadian</th><th>Unit</th><th>Jenis</th><th style="min-width:220px">Uraian</th><th>Lokasi</th><th class="num">D</th><th>Level aktual</th><th>Tindakan segera</th><th>Kode risiko</th><th>Lapor 1×24 jam</th><th>Ke SIK</th><th></th></tr></thead><tbody>` + ev.map(([id, e]) => {
+    const r = S.risks[e.riskId]; const la = r ? (+(r.Kr || r.K)) * +e.D : 0; const hh = hours(e.waktuKejadian, e.waktuLapor);
+    const t24 = !wajib24(e) ? `<span class="muted small">Tidak wajib</span>` : ok24(e) ? `<span class="tag ok">${Math.round(hh)} jam</span>` : `<span class="tag bad">${hh === null ? "Belum" : Math.round(hh) + " jam"}</span>`;
+    const sik = !wajibSIK(e) ? `<span class="muted small">${esc(e.sik || "Tidak wajib")}</span>` : e.sik === "Ya" ? `<span class="tag ok">Ya</span>` : `<span class="tag bad">Belum</span>`;
+    return `<tr><td>${fmtDT(e.waktuKejadian)}</td><td>${esc(unitName(e.unitId))}</td><td><b>${esc(e.jenis)}</b></td><td>${esc(e.uraian)}</td><td>${esc(e.lokasi || "–")}</td><td class="num">${esc(e.D || "–")}</td><td>${la ? lvBadge(la, `${r.Kr || r.K}×${e.D} = ${la}`) : "–"}</td><td>${esc(e.tindakan || "–")}</td><td>${esc(r?.kode || "–")}</td><td>${t24}</td><td>${sik}</td><td><button class="btn sm" data-act="editevent" data-id="${id}">${canEditUnit(e.unitId) ? "Ubah" : "Lihat"}</button></td></tr>`;
+  }).join("") + `</tbody></table></div><p class="small muted">Level aktual = K risiko terkait × skor dampak peristiwa. Jika kejadian lebih sering atau lebih parah dari perkiraan, perbarui K atau D di register.</p>`;
+  return h;
+}
+
+/* ========== Laporan (Lampiran 9 & 10) ========== */
+function unitSummary(unitId, t, tw) {
+  const key = pkey(t, tw);
+  const rs = Object.entries(S.risks).filter(([, r]) => r.unitId === unitId && +r.tahun === +t);
+  const rt = Object.entries(S.rtps).filter(([, x]) => x.unitId === unitId && S.risks[x.riskId] && +S.risks[x.riskId].tahun === +t);
+  const ev = Object.entries(S.events).filter(([, e]) => e.unitId === unitId && inPeriod(e.waktuKejadian, t, tw));
+  const due = rt.filter(([, x]) => x.target === key), done = due.filter(([, x]) => rtpDone(x));
+  const sik = ev.filter(([, e]) => wajibSIK(e));
+  const topEv = [...ev].sort((a, b) => JENIS.indexOf(b[1].jenis) - JENIS.indexOf(a[1].jenis) || (+b[1].D || 0) - (+a[1].D || 0)).slice(0, 3);
+  return { rs, rt, ev, due, done, merah: rs.filter(([, r]) => lvl(res(r)).i === 4).length, prio: rs.filter(([, r]) => isPrio(r)).length, late: rt.filter(([, x]) => rtpStatus(x) === "Terlambat").length, sikOk: sik.filter(([, e]) => e.sik === "Ya").length, sikN: sik.length, topEv };
+}
+function vReports() {
+  const key = pkey(S.f.tahun, S.f.tw);
+  let h = head("Laporan triwulan", `Lampiran 9 (unit ke Pemilik Risiko, tembusan UMR) dan Lampiran 10 (UMR ke Direktur). Periode ${plabel(key)}.`, filterBar({ unit: false }));
+  const units = unitsSorted();
+  if (!units.length) return h + emptyBox("Belum ada unit kerja", "Tambahkan unit kerja di Pengaturan.");
+  h += `<div class="panel" style="margin-bottom:14px"><h2>Laporan unit (Lampiran 9)</h2><div class="tablewrap"><table><thead><tr><th>Unit</th><th class="num">Risiko</th><th class="num">Merah</th><th>Realisasi RTP</th><th class="num">RTP terlambat</th><th class="num">Peristiwa</th><th>Status laporan</th><th>Dikirim</th><th></th></tr></thead><tbody>` + units.map(([id, u]) => {
+    const s = unitSummary(id, S.f.tahun, S.f.tw), rep = S.reports[`${id}_${key}`];
+    return `<tr><td>${esc(u.nama)}</td><td class="num">${s.rs.length}</td><td class="num">${s.merah}</td><td>${s.done.length}/${s.due.length}${s.due.length ? ` (${pct(s.done.length, s.due.length)}%)` : ""}</td><td class="num">${s.late}</td><td class="num">${s.ev.length}</td><td>${statusTag(rep?.status || "Belum dibuat")}</td><td>${rep?.sentAt ? fmtDate(rep.sentAt) : "–"}</td><td><div class="row"><button class="btn sm ${canEditUnit(id) && rep?.status !== "Dikirim" ? "pri" : ""}" data-act="editreport" data-id="${id}">${canEditUnit(id) && rep?.status !== "Dikirim" ? "Susun laporan" : "Lihat"}</button><button class="btn sm" data-act="dlreport" data-id="${id}">Unduh</button></div></td></tr>`;
+  }).join("") + `</tbody></table></div></div>`;
+  const ur = S.reports[`UMR_${key}`];
+  const sent = units.filter(([id]) => S.reports[`${id}_${key}`]?.status === "Dikirim").length;
+  h += `<div class="panel"><div class="row"><h2 style="margin:0">Laporan konsolidasi UMR (Lampiran 10)</h2>${statusTag(ur?.status || "Belum dibuat")}<span class="spacer"></span>${canValidate() && ur?.status !== "Dikirim" ? `<button class="btn pri" data-act="editumr">Susun laporan konsolidasi</button>` : `<button class="btn" data-act="editumr">Lihat</button>`}<button class="btn" data-act="dlumr">Unduh</button></div><p class="small muted" style="margin:8px 0 0">${sent} dari ${units.length} unit sudah mengirim laporan ${plabel(key)}. Angka konsolidasi dihitung otomatis dari register, RTP, dan catatan peristiwa seluruh unit.</p></div>`;
+  return h;
+}
+function consolidated(t, tw) {
+  const key = pkey(t, tw);
+  const rs = Object.entries(S.risks).filter(([, r]) => +r.tahun === +t);
+  const rt = Object.entries(S.rtps).filter(([, x]) => S.risks[x.riskId] && +S.risks[x.riskId].tahun === +t);
+  const ev = Object.entries(S.events).filter(([, e]) => inPeriod(e.waktuKejadian, t, tw));
+  const due = rt.filter(([, x]) => x.target === key), done = due.filter(([, x]) => rtpDone(x));
+  const dist = [4, 3, 2, 1].map((i) => rs.filter(([, r]) => lvl(res(r)).i === i).length);
+  const top = [...rs].filter(([, r]) => isPrio(r)).sort((a, b) => res(b[1]) - res(a[1]) || (b[1].Dr || b[1].D) - (a[1].Dr || a[1].D)).slice(0, 5);
+  const perUnit = unitsSorted().map(([id, u]) => { const d = due.filter(([, x]) => x.unitId === id); return [u.nama, d.length ? pct(d.filter(([, x]) => rtpDone(x)).length, d.length) : null]; }).filter((x) => x[1] !== null).sort((a, b) => b[1] - a[1]);
+  const sik = ev.filter(([, e]) => wajibSIK(e));
+  const hamb = rt.map(([, x]) => (x.monitor || {})[key]?.hambatan).filter(Boolean);
+  const topEv = [...ev].sort((a, b) => JENIS.indexOf(b[1].jenis) - JENIS.indexOf(a[1].jenis) || (+b[1].D || 0) - (+a[1].D || 0)).slice(0, 3);
+  return { rs, rt, ev, due, done, dist, top, perUnit, sik, sikOk: sik.filter(([, e]) => e.sik === "Ya").length, late: rt.filter(([, x]) => rtpStatus(x) === "Terlambat"), hamb, topEv, signif: ev.filter(([, e]) => ["KTD", "Sentinel"].includes(e.jenis) || e.signifikan || +e.D >= 3) };
+}
+
+/* ========== VIEW: SPI (Lini 3) ========== */
+function vSPI() {
+  const key = pkey(S.f.tahun, S.f.tw);
+  let h = head("Pengawasan SPI (Lini 3)", `Penilaian independen atas proses manajemen risiko Lini 1 dan Lini 2 (Pasal 8). Indeks kepatuhan dihitung otomatis per ${plabel(key)}.`, `<div class="row">${filterBar()}${canAudit() ? `<button class="btn pri" data-act="newaudit">Catat temuan</button>` : ""}</div>`);
+  const units = unitsSorted().filter(([id]) => unitFilterOk(id));
+  if (!units.length) return h + emptyBox("Belum ada unit kerja", "Tambahkan unit kerja di Pengaturan.");
+  const comps = units.map(([id, u]) => [id, u, compliance(id, S.f.tahun, S.f.tw)]);
+  const crit = comps[0][2].items.map((x) => x[0]);
+  h += `<div class="panel" style="margin-bottom:14px"><h2>Indeks kepatuhan proses per unit</h2><p class="small muted" style="margin:0 0 10px">✓ terpenuhi · ✗ belum terpenuhi · – tidak berlaku pada periode ini. Gunakan matriks ini untuk menentukan unit yang perlu diaudit lebih dalam.</p><div class="tablewrap"><table><thead><tr><th>Kriteria</th>${comps.map(([, u]) => `<th style="white-space:normal;min-width:90px">${esc(u.nama)}</th>`).join("")}</tr></thead><tbody>${crit.map((c, i) => `<tr><td>${esc(c)}</td>${comps.map(([, , x]) => { const v = x.items[i][1]; return `<td class="chk ${v === null ? "na" : v ? "y" : "n"}">${v === null ? "–" : v ? "✓" : "✗"}</td>`; }).join("")}</tr>`).join("")}<tr><td><b>Indeks kepatuhan</b></td>${comps.map(([, , x]) => `<td><b style="color:${x.score === null ? "inherit" : x.score >= 80 ? "var(--ok)" : x.score >= 60 ? "var(--warn)" : "var(--bad)"}">${x.score === null ? "–" : x.score + "%"}</b></td>`).join("")}</tr></tbody></table></div></div>`;
+  const au = Object.entries(S.audits).filter(([, a]) => unitFilterOk(a.unitId) && (!a.tahun || +a.tahun === +S.f.tahun)).sort((a, b) => String(b[1].createdAt).localeCompare(String(a[1].createdAt)));
+  h += `<div class="panel"><div class="row"><h2 style="margin:0">Temuan dan rekomendasi SPI</h2><span class="spacer"></span><span class="small muted">${au.filter(([, a]) => a.status !== "Selesai").length} terbuka</span></div>`;
+  if (!au.length) h += `<p class="muted">Belum ada temuan untuk tahun ${S.f.tahun}. ${canAudit() ? "Catat temuan dari reviu register, RTP, atau pelaporan." : ""}</p>`;
+  else h += `<div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Tanggal</th><th>Unit</th><th>Aspek</th><th>Objek</th><th style="min-width:200px">Temuan</th><th style="min-width:200px">Rekomendasi</th><th>Prioritas</th><th>Batas</th><th>Tanggapan unit</th><th>Status</th><th></th></tr></thead><tbody>${au.map(([id, a]) => `<tr><td>${fmtDate(a.createdAt)}</td><td>${esc(unitName(a.unitId))}</td><td>${esc(a.aspek)}</td><td>${esc(S.risks[a.riskId]?.kode || (a.riskId ? "Risiko" : "Unit"))}</td><td>${esc(a.temuan)}</td><td>${esc(a.rekomendasi)}</td><td>${esc(a.prioritas)}</td><td>${fmtDate(a.batas)}</td><td>${esc(a.tanggapan || "–")}</td><td>${statusTag(a.status)}</td><td><button class="btn sm" data-act="editaudit" data-id="${id}">${canAudit() ? "Ubah" : canEditUnit(a.unitId) ? "Tanggapi" : "Lihat"}</button></td></tr>`).join("")}</tbody></table></div>`;
+  return h + `</div>`;
+}
+
+/* ========== VIEW: Panduan ========== */
+function vGuide() {
+  const step = (n, title, body, open) => `<details class="g" ${open ? "open" : ""}><summary><span class="st">${n}</span>${title}</summary><div class="gb">${body}</div></details>`;
+  const role = (r, t, b) => `<div class="panel"><span class="rolepill rp-${r}">${ROLE_SHORT[r]}</span><h3 style="margin-top:8px">${t}</h3>${b}</div>`;
+  return head("Panduan pengisian", "Langkah demi langkah sesuai Peraturan Direktur No. 266 Tahun 2026, dengan contoh untuk risiko klinis, keuangan, reputasi, dan hukum.") +
+  `<div class="grid g3" style="margin-bottom:16px">
+   ${role("L1", "Pemilik dan Pengelola Risiko unit", `<ol class="small" style="padding-left:18px;margin:0"><li>Isi <b>Konteks unit</b> di awal tahun.</li><li>Tambah risiko di <b>Register</b>, lalu <b>Ajukan ke UMR</b>.</li><li>Isi <b>RCA</b> untuk risiko Tinggi/Sangat Tinggi dalam 45 hari.</li><li>Susun <b>RTP</b> untuk setiap risiko prioritas.</li><li>Catat <b>realisasi RTP</b> dan <b>peristiwa</b> sepanjang triwulan.</li><li>Kirim <b>Laporan triwulan</b> unit.</li></ol>`)}
+   ${role("L2", "Unit Manajemen Risiko", `<ol class="small" style="padding-left:18px;margin:0"><li>Kelola daftar unit dan peran di <b>Pengaturan</b>.</li><li><b>Validasi</b> risiko yang diajukan, beri kode, atau kembalikan untuk revisi.</li><li>Pantau <b>Dasbor</b>: RTP terlambat, RCA lewat batas, insiden.</li><li>Eskalasikan risiko Merah ke Direktur.</li><li>Susun <b>Laporan konsolidasi</b> (Lampiran 10).</li></ol>`)}
+   ${role("L3", "Satuan Pengawasan Internal", `<ol class="small" style="padding-left:18px;margin:0"><li>Buka <b>Pengawasan SPI</b> untuk melihat indeks kepatuhan per unit.</li><li>Reviu register, RTP, dan laporan unit yang indeksnya rendah.</li><li><b>Catat temuan</b> dan rekomendasi; tetapkan batas tindak lanjut.</li><li>Pantau tanggapan unit sampai temuan berstatus Selesai.</li></ol><p class="small muted" style="margin:6px 0 0">SPI tidak mengisi register atau RTP unit agar tetap independen.</p>`)}
+  </div>
+  <h2>Langkah pengisian</h2>
+  ${step(1, "Konteks unit kerja (Lampiran 1)", `<p><b>Siapa:</b> Pemilik Risiko dibantu Pengelola Risiko. <b>Kapan:</b> awal tahun. <b>Menu:</b> Konteks unit → Isi konteks.</p><ol><li>Tulis visi dan misi unit yang diturunkan dari Renstra.</li><li>Isi sasaran/IKU dengan target dan indikator, lalu tandai kesesuaian dengan indikator mutu nasional.</li><li>Isi proses bisnis utama, output, dan risiko yang melekat.</li><li>Isi pemangku kepentingan, harapan, dan risiko yang dikhawatirkan.</li><li>Tetapkan <b>selera risiko</b> dalam kalimat dan angka (skor maksimal yang masih diterima). Selera unit tidak boleh lebih longgar dari selera rumah sakit: tidak mentoleransi sentinel dan pelanggaran hukum berat.</li></ol><div class="ex"><b>Contoh klinis (Rawat Inap):</b> sasaran "Kejadian pasien jatuh = 0 per tahun"; selera "tidak mentoleransi pasien jatuh dengan cedera berat", batas skor ≤ 12.<br><b>Contoh keuangan (Casemix):</b> sasaran "Klaim pending ≤ 2% nilai klaim per bulan"; batas ≤ 12.<br><b>Contoh reputasi (Rawat Jalan):</b> "tidak mentoleransi keluhan yang diberitakan media"; batas ≤ 6.<br><b>Contoh hukum (Bedah Sentral):</b> "tidak mentoleransi tindakan tanpa persetujuan sah"; batas ≤ 6.</div>`, true)}
+  ${step(2, "Identifikasi risiko (Register, Lampiran 4)", `<p><b>Menu:</b> Register risiko → Tambah risiko. Pilih sasaran dari Lampiran 1, lalu isi tiga kolom yang membentuk pernyataan risiko: <b>peristiwa</b>, <b>penyebab</b>, dan <b>dampak</b>. Aplikasi merangkainya menjadi "Kemungkinan … yang disebabkan …, sehingga …".</p><p>Sumber identifikasi: laporan insiden, keluhan, temuan audit, survei akreditasi, indikator mutu yang tidak tercapai, regulasi baru, curah pendapat, dan FMEA.</p><div class="ex"><b>Keliru:</b> "Kekurangan perawat" (ini penyebab, bukan risiko).<br><b>Benar:</b> Kemungkinan pasien risiko tinggi jatuh, yang disebabkan asesmen ulang tidak dilakukan tiap shift dan bel kamar mandi rusak, sehingga cedera dan masa rawat bertambah.</div><div class="ex"><b>Keuangan:</b> klaim BPJS pending · resume medis tidak lengkap dan koding tidak sesuai · pendapatan tertunda.<br><b>Reputasi:</b> keluhan waktu tunggu > 3 jam viral · dokter terlambat, antrean online belum terhubung · pemberitaan negatif.<br><b>Hukum:</b> rumah sakit digugat pasien · informed consent tidak lengkap · ganti rugi.</div>`)}
+  ${step(3, "Analisis risiko: inheren dan residu (Lampiran 2–3)", `<p>Pilih <b>K</b> (kemungkinan) dari data frekuensi setahun terakhir dan <b>D</b> (dampak) dari akibat terburuk yang masuk akal. Bila kolom dampak klinis, keuangan, dan operasional/reputasi berbeda, pakai nilai tertinggi. Skor dan warna dihitung otomatis.</p><p>Tulis pengendalian yang sudah ada dan efektivitasnya, lalu isi <b>K dan D residu</b>. Turunkan skor hanya bila ada bukti, misalnya hasil audit kepatuhan. Pengendalian yang tidak efektif tidak menurunkan skor.</p><div class="ex"><b>Pasien jatuh:</b> inheren 5×4 = 20; asesmen ulang baru 60% patuh; residu 4×4 = 16.<br><b>Klaim pending:</b> 5×4 = 20 → 5×3 = 15. <b>Keluhan viral:</b> 4×4 = 16 → 4×3 = 12.<br><b>Informed consent:</b> 3×5 = 15 → tetap 15, karena sign-in hanya mengecek ada atau tidaknya formulir.</div><p class="small muted">Acuan level dapat dipilih UMR di Pengaturan (Lampiran 3B sebagai bawaan, sesuai Lampiran 10).</p>`)}
+  ${step(4, "Evaluasi, pengajuan, dan validasi UMR", `<p>Aplikasi membandingkan skor residu dengan selera unit. Bila melebihi, kolom Ket. menjadi <b>Prioritas</b> dan risiko wajib dibuatkan RTP. Risiko di bawah selera tetap dicatat dan dipantau.</p><ol><li>Lini 1 menekan <b>Ajukan ke UMR</b> setelah register lengkap.</li><li>Lini 2 membuka risiko berstatus Diajukan, memberi <b>kode risiko</b>, lalu memilih <b>Validasi</b> atau <b>Kembalikan untuk revisi</b> dengan catatan.</li><li>Risiko Sangat Tinggi (Merah) dieskalasi ke Direktur.</li></ol>`)}
+  ${step(5, "Analisis akar masalah (Lampiran 6)", `<p><b>Menu:</b> Analisis akar masalah, atau tombol RCA di register. Wajib untuk residu Tinggi dan Sangat Tinggi, paling lama 45 hari sejak validasi. Isi 5 Why sampai jawabannya berupa sistem, proses, atau kebijakan yang bisa diubah, lalu tulis akar penyebab dan rekomendasi. Isi tanggal selesai agar status RCA menjadi Selesai.</p><div class="ex"><b>Pasien jatuh:</b> turun sendiri ke kamar mandi → tidak tahu risikonya naik setelah sedatif → asesmen ulang tidak dilakukan → formulir belum ada di e-RM → SOP belum diperbarui dan tidak ada audit. <b>Akar:</b> asesmen ulang belum terintegrasi di e-RM dan serah terima.</div>`)}
+  ${step(6, "Rencana tindak pengendalian (Lampiran 5)", `<p><b>Menu:</b> Rencana tindak (RTP) → Tambah RTP. Satu risiko boleh memiliki beberapa kegiatan. Setiap RTP memuat akar penyebab, kegiatan, pilihan penanganan, penanggung jawab, indikator, target triwulan, dan estimasi K × D setelah tindakan (dengan anggapan terlaksana 100%). Pastikan target berada di bawah selera unit.</p><div class="ex"><b>RI-PD-01:</b> formulir dan pengingat asesmen ulang Morse di e-RM · Kepala Ruang dan Tim SIMRS · kepatuhan ≥ 90% · TW IV · target 2×4 = 8.<br><b>IBS-01:</b> SPO informed consent sebelum premedikasi · Kepala IBS dan Komite Medik · kelengkapan 100% · TW III · target 1×5 = 5.</div>`)}
+  ${step(7, "Pemantauan realisasi RTP (Lampiran 7)", `<p>Setiap akhir triwulan, buka RTP → <b>Catat realisasi</b> untuk periode yang dipilih: Sudah atau Belum, hambatan, dan tindak lanjut. Bila target lewat dan realisasi belum Sudah, status otomatis <b>Terlambat</b> dan masuk dasbor.</p><div class="ex"><b>Terlaksana belum tentu efektif:</b> audit RI-PD-01 sudah berjalan, tetapi kepatuhan baru 72% dari target 90%. Tandai Sudah untuk kegiatannya, lalu tulis capaian indikator di hambatan.</div>`)}
+  ${step(8, "Peristiwa risiko dan insiden (Lampiran 8)", `<p><b>Menu:</b> Peristiwa & insiden → Catat peristiwa. Pilih jenis: KPCS, KNC, KTC, KTD, Sentinel, atau Non-klinis. Isi waktu kejadian dan waktu dilaporkan ke Direktur/UMR; aplikasi menghitung apakah ≤ 1×24 jam untuk sentinel dan kejadian yang ditandai signifikan. KTD dan Sentinel wajib ditandai sudah dilaporkan ke SIK (e-report Kemenkes).</p><div class="ex"><b>KTD:</b> pasien 72 tahun jatuh, fraktur pergelangan, rawat +3 hari, D = 3, kaitkan ke RI-PD-01.<br><b>Non-klinis signifikan:</b> somasi kuasa hukum pasien operasi, D = 5, kaitkan ke IBS-01, lapor ≤ 1×24 jam.</div>`)}
+  ${step(9, "Laporan triwulan (Lampiran 9 dan 10)", `<p><b>Lini 1:</b> Laporan triwulan → Susun laporan. Ringkasan eksekutif terisi otomatis dari register, RTP, dan peristiwa. Tambahkan hambatan, rencana triwulan berikutnya, dan rekomendasi utama, lalu <b>Kirim laporan</b>.</p><p><b>Lini 2:</b> Susun laporan konsolidasi. Profil risiko, distribusi level, lima prioritas teratas, realisasi RTP per unit, dan kejadian signifikan terisi otomatis. Tambahkan rekomendasi untuk Direktur, lalu kirim. Laporan dapat diunduh sebagai HTML untuk dicetak atau ditandatangani.</p><p><b>Semesteran:</b> risiko klinis prioritas tinggi dinilai ulang setiap 6 bulan (Pasal 10 ayat 3). Perbarui K dan D residu di register pada TW II dan TW IV.</p>`)}
+  <div class="panel" style="margin-top:14px"><h2>Pertanyaan umum</h2>
+  <p><b>Apakah data saya terlihat unit lain?</b> Ya, semua pengguna di organisasi dapat membaca data agar Lini 2 dan Lini 3 bisa memantau. Lini 1 hanya dapat mengubah data unitnya sendiri.</p>
+  <p><b>Saya salah memilih peran.</b> Tekan Ubah peran di bawah menu. UMR dan pemilik aplikasi dapat mengubah peran pengguna lain di Pengaturan.</p>
+  <p style="margin:0"><b>Mengapa warna berbeda dengan matriks di Lampiran 3A?</b> Pedoman memuat dua rentang berbeda. Aplikasi memakai Lampiran 3B sebagai bawaan; UMR dapat mengubahnya di Pengaturan setelah ada penetapan resmi.</p></div>`;
+}
+
+/* ========== VIEW: Pengaturan ========== */
+function vSettings() {
+  let h = head("Pengaturan", "Unit kerja, peran pengguna, dan acuan penilaian. Hanya UMR dan pemilik aplikasi yang dapat mengubah.");
+  const ad = isAdmin() && !S.readOnly;
+  h += `<div class="grid g2" style="margin-bottom:14px"><div class="panel"><h2>Acuan penilaian</h2>
+    <label class="f"><span>Tahun berjalan</span><input type="number" id="cfgTahun" value="${esc(S.cfg.tahun)}" ${ad ? "" : "disabled"}></label>
+    <label class="f"><span>Acuan level risiko</span><select id="cfgAcuan" ${ad ? "" : "disabled"}><option value="3B" ${S.cfg.acuan === "3B" ? "selected" : ""}>Lampiran 3B: Rendah 1–6, Sedang 7–12, Tinggi 13–19, Sangat Tinggi 20–25</option><option value="3A" ${S.cfg.acuan === "3A" ? "selected" : ""}>Lampiran 3A: Rendah 1–4, Sedang 5–9, Tinggi 10–15, Sangat Tinggi 16–25</option></select><span class="hint">Pedoman memuat dua rentang berbeda. Lampiran 3B selaras dengan format laporan Lampiran 10.</span></label>
+    <label class="f"><span>Selera risiko bawaan (bila unit belum menetapkan)</span><input type="number" min="1" max="25" id="cfgSelera" value="${esc(S.cfg.seleraDefault)}" ${ad ? "" : "disabled"}></label>
+    ${ad ? `<button class="btn pri" data-act="savecfg">Simpan acuan</button>` : ""}</div>
+    <div class="panel"><div class="row"><h2 style="margin:0">Unit kerja</h2><span class="spacer"></span>${ad ? `<button class="btn pri sm" data-act="editunit">Tambah unit</button>` : ""}</div>
+    ${unitsSorted().length ? `<div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Unit</th><th>Singkatan</th><th>Pemilik risiko</th><th></th></tr></thead><tbody>${unitsSorted().map(([id, u]) => `<tr><td>${esc(u.nama)}</td><td>${esc(u.singkatan || "–")}</td><td>${esc(u.pemilik || "–")}</td><td>${ad ? `<button class="btn sm" data-act="editunit" data-id="${id}">Ubah</button>` : ""}</td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Belum ada unit. Tambahkan unit kerja agar Lini 1 dapat memilih unitnya.</p>`}</div></div>`;
+  if (S.mode === "db") {
+    const ms = Object.entries(S.members);
+    h += `<div class="panel" style="margin-bottom:14px"><h2>Pengguna dan peran</h2>${ms.length ? `<div class="tablewrap"><table><thead><tr><th>Pengguna</th><th>Peran</th><th>Unit</th><th>Jabatan</th><th></th></tr></thead><tbody>${ms.map(([id, m]) => `<tr><td>${esc(personName(id))}</td><td>${m.role ? `<span class="rolepill rp-${m.role}">${esc(ROLE_SHORT[m.role])}</span>` : "–"}</td><td>${esc(m.unitId ? unitName(m.unitId) : "–")}</td><td>${esc(m.jabatan || "–")}</td><td>${ad || id === S.me.id ? `<button class="btn sm" data-act="pickrole" data-id="${id}">Ubah</button>` : ""}</td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Belum ada pengguna yang memilih peran.</p>`}<p class="small muted">Bagikan aplikasi ini ke rekan sebagai Contributor agar mereka dapat mengisi data. Peran mengatur tampilan dan tombol di aplikasi; hak menulis data mengikuti pengaturan berbagi.</p></div>`;
+  }
+  const nC = COLS.reduce((a, c) => a + Object.values(S[c]).filter((x) => x.contoh).length, 0);
+  if (nC && ad) h += `<div class="panel"><h2>Data contoh</h2><p>Aplikasi berisi ${nC} data contoh (empat kasus pelatihan: pasien jatuh, klaim BPJS, keluhan viral, dan informed consent) yang ditandai "contoh". Hapus sebelum dipakai untuk data riil.</p><button class="btn" data-act="delcontoh">Hapus semua data contoh</button></div>`;
+  return h;
+}
+
+/* ========== Main render ========== */
+function doRender() {
+  renderNav();
+  const m = $("#main");
+  if (S.mode === "loading") return;
+  if (S.mode === "revoked") { m.innerHTML = emptyBox("Akses ke data tidak tersedia", "Muat ulang halaman untuk mencoba lagi."); return; }
+  let pre = "";
+  if (S.mode === "local") pre = `<div class="banner"><b>Mode lokal.</b> Data bersama tidak tersedia di tampilan ini, jadi isian hanya tersimpan di perangkat ini. Buka aplikasi melalui tautan claude.ai yang dibagikan agar Lini 1, 2, dan 3 bekerja pada data yang sama.</div>`;
+  else if (!S.me.role && S.loaded?.members) pre = `<div class="banner"><b>Pilih peran Anda</b> agar menu dan tombol sesuai tugas. <button class="btn sm pri" data-act="pickrole">Pilih peran</button></div>`;
+  if (S.readOnly) pre += `<div class="banner">Akun Anda hanya dapat membaca data. Minta pemilik aplikasi membagikan sebagai Contributor untuk mengisi.</div>`;
+  const V = { dashboard: vDashboard, konteks: vKonteks, register: vRegister, rca: vRCA, rtp: vRTP, events: vEvents, reports: vReports, spi: vSPI, guide: vGuide, settings: vSettings };
+  const sy = window.scrollY;
+  m.innerHTML = pre + (V[S.view] || vDashboard)();
+  window.scrollTo(0, sy);
+  if (S.mode === "db" && !S.me.role && S.loaded?.members && !S.ui.askedRole) { S.ui.askedRole = true; openRole(S.me.id); }
+}
+
+/* ========== Modal framework ========== */
+let onSave = null;
+function openModal(title, body, opts = {}) {
+  $("#dlgTitle").textContent = title;
+  $("#dlgBody").innerHTML = body;
+  const btns = (opts.buttons || [{ v: "save", t: "Simpan", pri: true }]).filter(Boolean);
+  $("#dlgFoot").innerHTML = `<button class="btn" value="cancel">${opts.readOnly ? "Tutup" : "Batal"}</button>` + (opts.readOnly ? "" : btns.map((b) => `<button class="btn ${b.pri ? "pri" : ""}" value="${b.v}" ${b.danger ? 'style="color:var(--bad)"' : ""}>${esc(b.t)}</button>`).join(""));
+  if (opts.readOnly) $("#dlgBody").querySelectorAll("input,select,textarea,button.rowbtn").forEach((el) => (el.disabled = true));
+  onSave = opts.onSave || null;
+  const d = $("#dlg"); if (!d.open) d.showModal();
+  if (opts.after) opts.after($("#dlgBody"));
+}
+$("#dlgForm").addEventListener("submit", async (ev) => {
+  const v = ev.submitter?.value;
+  if (!v || v === "cancel" || !onSave) return;
+  ev.preventDefault();
+  const fd = {}; $("#dlgBody").querySelectorAll("[name]").forEach((el) => { if (el.type === "checkbox") fd[el.name] = el.checked; else fd[el.name] = el.value.trim(); });
+  const out = await onSave(v, fd, $("#dlgBody"));
+  if (out !== false) $("#dlg").close();
+});
+const fld = (name, label, val, o = {}) => {
+  const t = o.type || "text", hint = o.hint ? `<span class="hint">${o.hint}</span>` : "";
+  let inp;
+  if (t === "textarea") inp = `<textarea name="${name}" ${o.req ? "required" : ""} placeholder="${esc(o.ph || "")}">${esc(val)}</textarea>`;
+  else if (t === "select") inp = `<select name="${name}" ${o.req ? "required" : ""}>${o.blank !== false ? `<option value="">${esc(o.blank || "Pilih…")}</option>` : ""}${o.opts.map((x) => { const [v, l] = Array.isArray(x) ? x : [x, x]; return `<option value="${esc(v)}" ${String(val) === String(v) ? "selected" : ""}>${esc(l)}</option>`; }).join("")}</select>`;
+  else if (t === "checkbox") return `<label class="row small" style="margin-bottom:10px"><input type="checkbox" name="${name}" ${val ? "checked" : ""}> ${esc(label)}</label>`;
+  else inp = `<input type="${t}" name="${name}" value="${esc(val)}" ${o.req ? "required" : ""} ${o.min ? `min="${o.min}"` : ""} ${o.max ? `max="${o.max}"` : ""} placeholder="${esc(o.ph || "")}">`;
+  return `<label class="f"><span>${esc(label)}${o.req ? " *" : ""}</span>${inp}${hint}</label>`;
+};
+const KOPTS = [1, 2, 3, 4, 5].map((i) => [i, `${i} · ${KTXT[i]}`]);
+const DOPTS = [1, 2, 3, 4, 5].map((i) => [i, `${i} · ${DTXT[i]}`]);
+const twOpts = (t0) => { const o = []; for (let t = t0 - 1; t <= t0 + 1; t++) for (let q = 1; q <= 4; q++) o.push([pkey(t, q), plabel(pkey(t, q))]); return o; };
+function unitOpts(only) { return unitsSorted().filter(([id]) => !only || canEditUnit(id)).map(([id, u]) => [id, u.nama]); }
+
+/* ---- Peran ---- */
+function openRole(memberId) {
+  const id = memberId || S.me.id, m = S.members[id] || {};
+  const self = id === S.me.id;
+  openModal(self ? "Pilih peran Anda" : `Ubah peran: ${personName(id)}`, `<p class="small" style="margin-top:0">Peran menentukan menu dan tombol yang Anda gunakan. Lini 1 mengisi data unitnya; Lini 2 (UMR) memvalidasi dan menyusun konsolidasi; Lini 3 (SPI) menilai dan mencatat temuan.</p>
+    ${fld("role", "Peran", m.role || "", { type: "select", req: true, opts: Object.entries(ROLES) })}
+    ${fld("unitId", "Unit kerja (wajib untuk Lini 1)", m.unitId || "", { type: "select", opts: unitOpts(), hint: unitsSorted().length ? "" : "Belum ada unit. UMR menambahkan unit di Pengaturan." })}
+    ${fld("jabatan", "Jabatan", m.jabatan || "", { type: "select", opts: ["Pemilik Risiko (kepala unit)", "Pengelola Risiko", "Koordinator UMR", "Anggota UMR", "Auditor SPI", "Kepala SPI", "Direktur"] })}`,
+    { onSave: async (v, f) => { if (f.role === "L1" && !f.unitId) { toast("Pilih unit kerja untuk Lini 1."); return false; } await put("members", id, { role: f.role, unitId: f.role === "L1" ? f.unitId : "", jabatan: f.jabatan }); toast("Peran disimpan."); } });
+}
+
+/* ---- Unit ---- */
+function openUnit(id) {
+  const u = id ? S.units[id] : {};
+  openModal(id ? "Ubah unit kerja" : "Tambah unit kerja", `<div class="fg fg2">${fld("nama", "Nama unit", u.nama, { req: true, ph: "Instalasi Rawat Inap · Ruang Penyakit Dalam" })}${fld("singkatan", "Singkatan untuk kode risiko", u.singkatan, { ph: "RI-PD" })}</div>${fld("pemilik", "Pemilik risiko (nama/jabatan)", u.pemilik, { ph: "Kepala Ruang Penyakit Dalam" })}`,
+    { buttons: [id ? { v: "del", t: "Hapus unit", danger: true } : null, { v: "save", t: "Simpan", pri: true }],
+      onSave: async (v, f) => {
+        if (v === "del") { if (Object.values(S.risks).some((r) => r.unitId === id)) { toast("Unit masih memiliki risiko. Hapus atau pindahkan risikonya dulu."); return false; } await del("units", id); return; }
+        if (!f.nama) { toast("Nama unit wajib diisi."); return false; }
+        await put("units", id || uid(), Object.assign({}, u, { nama: f.nama, singkatan: f.singkatan, pemilik: f.pemilik }));
+      } });
+}
+
+/* ---- Konteks ---- */
+function rowsEditor(name, cols, rows) {
+  const row = (r = {}) => `<div class="rr" style="grid-template-columns:${cols.map((c) => c.w || "1fr").join(" ")} 34px">${cols.map((c) => c.opts ? `<select data-k="${c.k}"><option value=""></option>${c.opts.map((o) => `<option ${r[c.k] === o ? "selected" : ""}>${o}</option>`).join("")}</select>` : `<input type="text" data-k="${c.k}" value="${esc(r[c.k] || "")}" placeholder="${esc(c.l)}" aria-label="${esc(c.l)}">`).join("")}<button type="button" class="btn sm rowbtn" data-rowdel aria-label="Hapus baris">✕</button></div>`;
+  return `<div class="rows" data-rows="${name}"><div class="rr small muted" style="grid-template-columns:${cols.map((c) => c.w || "1fr").join(" ")} 34px">${cols.map((c) => `<span>${esc(c.l)}</span>`).join("")}<span></span></div>${(rows && rows.length ? rows : [{}]).map(row).join("")}<template>${row()}</template><button type="button" class="btn sm rowbtn" data-rowadd>Tambah baris</button></div>`;
+}
+function readRows(body, name) { return [...body.querySelectorAll(`[data-rows="${name}"] .rr`)].slice(1).map((rr) => { const o = {}; rr.querySelectorAll("[data-k]").forEach((el) => (o[el.dataset.k] = el.value.trim())); return o; }).filter((o) => Object.values(o).some(Boolean)); }
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-rowadd]"); if (a) { const w = a.closest("[data-rows]"); a.insertAdjacentHTML("beforebegin", w.querySelector("template").innerHTML); return; }
+  const d = e.target.closest("[data-rowdel]"); if (d) d.closest(".rr").remove();
+});
+function openKonteks(unitId) {
+  const t = S.f.tahun, k = konteks(unitId, t) || {}, ro = !canEditUnit(unitId);
+  openModal(`Konteks ${unitName(unitId)} · ${t}`, `
+    <fieldset class="fs"><legend>A. Identitas unit</legend>${fld("visi", "Visi dan misi unit (sesuai Renstra)", k.visi, { type: "textarea", req: true })}</fieldset>
+    <fieldset class="fs"><legend>B. Sasaran unit / IKU</legend>${rowsEditor("sasaran", [{ k: "sasaran", l: "Sasaran / IKU", w: "2fr" }, { k: "target", l: "Target" }, { k: "indikator", l: "Indikator keberhasilan", w: "1.5fr" }, { k: "nasional", l: "Mutu nasional", opts: ["Ya", "Tidak"], w: "110px" }], k.sasaran)}<p class="hint small muted">Contoh: Kejadian pasien jatuh · 0 per tahun · Jumlah pasien jatuh per bulan · Ya</p></fieldset>
+    <fieldset class="fs"><legend>C. Proses bisnis / alur layanan utama</legend>${rowsEditor("proses", [{ k: "proses", l: "Proses / kegiatan", w: "1.5fr" }, { k: "output", l: "Output utama" }, { k: "risiko", l: "Risiko klinis/non-klinis terkait" }], k.proses)}</fieldset>
+    <fieldset class="fs"><legend>D. Pemangku kepentingan</legend>${rowsEditor("stakeholder", [{ k: "pihak", l: "Pihak (internal/eksternal)" }, { k: "harapan", l: "Ekspektasi terhadap unit" }, { k: "risiko", l: "Risiko yang dikhawatirkan" }], k.stakeholder)}</fieldset>
+    <fieldset class="fs"><legend>E. Selera risiko unit</legend>${fld("seleraKalimat", "Selera risiko dalam kalimat", k.selera?.kalimat, { type: "textarea", ph: "Unit tidak mentoleransi pasien jatuh yang menyebabkan cedera berat atau kematian." })}${fld("seleraMaks", "Skor residu maksimal yang masih diterima", k.selera?.maks || "", { type: "select", req: true, opts: [[6, "≤ 6 · Rendah (3B)"], [12, "≤ 12 · Sedang (3B)"], [4, "≤ 4 · Rendah (3A)"], [9, "≤ 9 · Sedang (3A)"], [15, "≤ 15 · Tinggi (3A)"], [19, "≤ 19 · Tinggi (3B)"]], hint: "Risiko dengan skor residu di atas angka ini otomatis menjadi prioritas. Tidak boleh lebih longgar dari selera rumah sakit." })}</fieldset>`,
+    { readOnly: ro, onSave: async (v, f, body) => {
+      if (!f.visi || !f.seleraMaks) { toast("Visi dan batas selera risiko wajib diisi."); return false; }
+      const u = JSON.parse(JSON.stringify(S.units[unitId])); u.konteks = u.konteks || {};
+      u.konteks[t] = { visi: f.visi, sasaran: readRows(body, "sasaran"), proses: readRows(body, "proses"), stakeholder: readRows(body, "stakeholder"), selera: { kalimat: f.seleraKalimat, maks: +f.seleraMaks } };
+      await put("units", unitId, u); toast("Konteks unit disimpan.");
+    } });
+}
+
+/* ---- Risiko ---- */
+function openRisk(id) {
+  const r = id ? S.risks[id] : { tahun: S.f.tahun, unitId: isL1() && S.me.unitId ? S.me.unitId : (S.f.unit !== "all" ? S.f.unit : ""), status: "Draf" };
+  if (!r) return;
+  const ro = id ? !canEditUnit(r.unitId) && !canValidate() : false;
+  const lockL1 = id && isL1() && r.status === "Diajukan";
+  const sas = r.unitId ? (konteks(r.unitId, r.tahun)?.sasaran || []).map((s) => s.sasaran).filter(Boolean) : [];
+  const body = `
+    ${r.status && id ? `<div class="row" style="margin-bottom:10px">${statusTag(r.status)}${r.kode ? `<span class="tag">Kode ${esc(r.kode)}</span>` : ""}${r.catatanUMR ? `<span class="small"><b>Catatan UMR:</b> ${esc(r.catatanUMR)}</span>` : ""}</div>` : ""}
+    <fieldset class="fs"><legend>Identifikasi</legend>
+      <div class="fg fg3">${fld("unitId", "Unit kerja", r.unitId, { type: "select", req: true, opts: unitOpts(!id) })}${fld("tahun", "Tahun", r.tahun, { type: "number", req: true })}${fld("kategori", "Kategori risiko", r.kategori, { type: "select", req: true, opts: KATEGORI })}</div>
+      ${sas.length ? fld("sasaran", "Sasaran unit terkait (Lampiran 1)", r.sasaran, { type: "select", opts: sas }) : fld("sasaran", "Sasaran unit terkait (Lampiran 1)", r.sasaran, { hint: "Isi konteks unit agar sasaran dapat dipilih dari daftar." })}
+      ${fld("peristiwa", "Peristiwa (kemungkinan …)", r.peristiwa, { req: true, ph: "pasien risiko tinggi jatuh dari tempat tidur atau di kamar mandi", hint: "Tulis kejadiannya, bukan penyebabnya." })}
+      ${fld("penyebab", "Penyebab (yang disebabkan …)", r.penyebab, { type: "textarea", req: true, ph: "asesmen ulang risiko jatuh tidak dilakukan tiap shift dan bel kamar mandi tidak berfungsi" })}
+      ${fld("dampak", "Dampak (sehingga …)", r.dampak, { type: "textarea", req: true, ph: "pasien cedera (fraktur, cedera kepala) dan masa rawat bertambah" })}
+      <div class="calc" id="uraianPrev"></div>
+    </fieldset>
+    <fieldset class="fs"><legend>Analisis inheren (Lampiran 2)</legend>
+      <div class="fg fg2">${fld("K", "Kemungkinan (K)", r.K, { type: "select", req: true, opts: KOPTS })}${fld("D", "Dampak (D), ambil kolom tertinggi", r.D, { type: "select", req: true, opts: DOPTS })}</div>
+      <div class="fg fg2">${fld("dasarK", "Dasar penilaian K", r.dasarK, { ph: "5 insiden pasien jatuh tahun lalu" })}${fld("dasarD", "Dasar penilaian D", r.dasarD, { ph: "1 insiden fraktur panggul" })}</div>
+    </fieldset>
+    <fieldset class="fs"><legend>Pengendalian yang ada dan risiko residu</legend>
+      ${fld("pengendalian", "Pengendalian yang sudah ada", r.pengendalian, { type: "textarea", ph: "Asesmen Morse saat masuk, gelang kuning, pagar tempat tidur" })}
+      <div class="fg fg3">${fld("efektivitas", "Efektivitas", r.efektivitas, { type: "select", opts: EFEKTIF })}${fld("Kr", "K residu", r.Kr, { type: "select", opts: KOPTS })}${fld("Dr", "D residu", r.Dr, { type: "select", opts: DOPTS })}</div>
+      ${fld("bukti", "Bukti efektivitas", r.bukti, { ph: "Audit kepatuhan asesmen ulang: 60%", hint: "Turunkan skor residu hanya bila ada bukti. Pengendalian tidak efektif tidak menurunkan skor." })}
+      <div class="calc" id="scorePrev"></div>
+    </fieldset>
+    ${id && canValidate() ? `<fieldset class="fs"><legend>Validasi UMR (Lini 2)</legend><div class="fg fg2">${fld("kode", "Kode risiko", r.kode || suggestCode(r), { req: false })}${fld("catatanUMR", "Catatan untuk unit", r.catatanUMR)}</div></fieldset>` : ""}`;
+  const isUMR = id && canValidate();
+  const btns = [];
+  if (id && canEditUnit(r.unitId) && !isUMR) btns.push({ v: "del", t: "Hapus", danger: true });
+  if (isUMR) { btns.push({ v: "revisi", t: "Kembalikan untuk revisi" }); btns.push({ v: "save", t: "Simpan" }); btns.push({ v: "validasi", t: "Validasi", pri: true }); }
+  else { btns.push({ v: "save", t: "Simpan draf" }); btns.push({ v: "ajukan", t: "Simpan dan ajukan ke UMR", pri: true }); }
+  openModal(id ? `Risiko ${r.kode || ""}` : "Tambah risiko", body, { readOnly: ro || lockL1, buttons: btns, after: (b) => {
+      const upd = () => {
+        const g = (n) => b.querySelector(`[name="${n}"]`)?.value;
+        const x = { peristiwa: g("peristiwa"), penyebab: g("penyebab"), dampak: g("dampak"), K: g("K"), D: g("D"), Kr: g("Kr"), Dr: g("Dr"), unitId: g("unitId"), tahun: g("tahun") };
+        $("#uraianPrev", b).innerHTML = `<b>Pernyataan risiko:</b> ${esc(uraian(x))}`;
+        const i = inh(x), rr = res(x), mx = x.unitId ? seleraMaks(x.unitId, x.tahun) : S.cfg.seleraDefault;
+        $("#scorePrev", b).innerHTML = `Inheren ${i ? lvBadge(i, `${x.K}×${x.D} = ${i} ${lvl(i).n}`) : "–"} → Residu ${rr ? lvBadge(rr, `${x.Kr || x.K}×${x.Dr || x.D} = ${rr} ${lvl(rr).n}`) : "–"} <span class="spacer"></span> Selera unit ≤ ${mx}: ${rr ? (rr > mx ? `<span class="tag bad">Prioritas, wajib RTP</span>` : `<span class="tag ok">Diterima, cukup dipantau</span>`) : ""}${rr && lvl(rr).i >= 3 ? ` <span class="tag warn">RCA ≤ 45 hari</span>` : ""}`;
+      };
+      b.addEventListener("input", upd); b.addEventListener("change", upd); upd();
+    },
+    onSave: async (v, f) => {
+      if (v === "del") { if (!confirm("Hapus risiko ini beserta RTP-nya?")) return false; for (const [tid, t] of Object.entries(S.rtps)) if (t.riskId === id) await del("rtps", tid); await del("risks", id); toast("Risiko dihapus."); return; }
+      if (!f.unitId || !f.peristiwa || !f.penyebab || !f.dampak || !f.K || !f.D || !f.kategori) { toast("Lengkapi kolom bertanda *."); return false; }
+      if ((f.Kr && !f.Dr) || (!f.Kr && f.Dr)) { toast("Isi K residu dan D residu bersamaan."); return false; }
+      if (f.Kr && f.Dr && +f.Kr * +f.Dr > +f.K * +f.D) { toast("Skor residu tidak boleh lebih tinggi dari skor inheren."); return false; }
+      const o = Object.assign({}, r, { unitId: f.unitId, tahun: +f.tahun, kategori: f.kategori, sasaran: f.sasaran, peristiwa: f.peristiwa, penyebab: f.penyebab, dampak: f.dampak, K: +f.K, D: +f.D, dasarK: f.dasarK, dasarD: f.dasarD, pengendalian: f.pengendalian, efektivitas: f.efektivitas, Kr: f.Kr ? +f.Kr : null, Dr: f.Dr ? +f.Dr : null, bukti: f.bukti });
+      if (!id) { o.createdAt = new Date().toISOString(); o.by = S.me.id || "lokal"; }
+      if (f.kode !== undefined) { o.kode = f.kode; o.catatanUMR = f.catatanUMR; }
+      if (v === "ajukan") o.status = "Diajukan";
+      if (v === "validasi") { if (!f.kode) { toast("Isi kode risiko sebelum validasi."); return false; } o.status = "Tervalidasi"; o.validatedAt = o.validatedAt || new Date().toISOString(); o.validatedBy = S.me.id || "lokal"; }
+      if (v === "revisi") { if (!f.catatanUMR) { toast("Tulis catatan revisi untuk unit."); return false; } o.status = "Perlu revisi"; }
+      if (v === "save" && !isUMR && o.status === "Tervalidasi") o.status = "Diajukan";
+      await put("risks", id || uid(), o);
+      toast(v === "ajukan" ? "Risiko diajukan ke UMR." : v === "validasi" ? "Risiko tervalidasi." : v === "revisi" ? "Risiko dikembalikan ke unit." : "Risiko disimpan.");
+    } });
+}
+function suggestCode(r) { const u = S.units[r.unitId]; const pre = u?.singkatan || (u?.nama || "RSK").split(/\s+/).map((w) => w[0]).join("").toUpperCase().slice(0, 4); const n = Object.values(S.risks).filter((x) => x.unitId === r.unitId && x.kode).length + 1; return `${pre}-${String(n).padStart(2, "0")}`; }
+
+/* ---- RCA ---- */
+function openRCA(id) {
+  const r = S.risks[id]; if (!r) return; const c = r.rca || {}, w = c.why || [];
+  const ro = !canEditUnit(r.unitId);
+  openModal(`RCA ${r.kode || ""}`, `<div class="calc" style="margin-bottom:12px"><span><b>Masalah:</b> ${esc(uraian(r))}</span><span>${lvBadge(res(r))}</span>${needsRCA(r) ? `<span class="tag warn">Batas ${fmtDate(rcaDue(r))}</span>` : ""}</div>
+    ${fld("metode", "Metode", c.metode || "5 Why", { type: "select", blank: false, opts: ["5 Why", "5 Why + Fishbone", "HFACS"], hint: "Fishbone atau HFACS untuk risiko kompleks, sistemik, atau sentinel." })}
+    ${[1, 2, 3, 4, 5].map((i) => fld("w" + i, `Why ${i}: ${i === 1 ? "mengapa risiko ini bisa terjadi?" : `mengapa jawaban Why ${i - 1} terjadi?`}`, w[i - 1])).join("")}
+    ${fld("akar", "Akar penyebab (kesimpulan)", c.akar, { type: "textarea", req: true, hint: "Belum akar masalah bila jawabannya 'petugas lalai'. Tanyakan mengapa sistem membiarkannya." })}
+    ${fld("rekomendasi", "Rekomendasi tindakan", c.rekomendasi, { type: "textarea" })}
+    <div class="fg fg2">${fld("tim", "Tim analisis", c.tim)}${fld("tanggal", "Tanggal RCA selesai", c.tanggal, { type: "date", hint: "Kosongkan bila RCA belum selesai." })}</div>`,
+    { readOnly: ro, onSave: async (v, f) => {
+      const o = JSON.parse(JSON.stringify(r)); o.rca = { metode: f.metode, why: [f.w1, f.w2, f.w3, f.w4, f.w5], akar: f.akar, rekomendasi: f.rekomendasi, tim: f.tim, tanggal: f.tanggal };
+      await put("risks", id, o); toast("RCA disimpan.");
+    } });
+}
+
+/* ---- RTP ---- */
+function openRTP(id, presetRisk) {
+  const t = id ? S.rtps[id] : { riskId: presetRisk || "", target: pkey(S.f.tahun, Math.min(4, +S.f.tw + 1)), opsi: OPSI[0] };
+  const pr = Object.entries(S.risks).filter(([rid, r]) => (canEditUnit(r.unitId) || rid === t.riskId) && (isPrio(r) || rid === t.riskId)).sort((a, b) => res(b[1]) - res(a[1]));
+  const ro = id ? !canEditUnit(t.unitId) : false;
+  if (!id && !pr.length) { toast("Belum ada risiko prioritas di unit Anda. RTP disusun untuk risiko di atas selera."); return; }
+  const rk = S.risks[t.riskId];
+  openModal(id ? "Rencana tindak pengendalian" : "Tambah RTP", `
+    ${fld("riskId", "Risiko prioritas", t.riskId, { type: "select", req: true, opts: pr.map(([rid, r]) => [rid, `${r.kode || "(tanpa kode)"} · ${unitName(r.unitId)} · ${r.peristiwa} (residu ${res(r)})`]) })}
+    ${fld("akar", "Akar penyebab yang disasar (dari RCA)", t.akar || rk?.rca?.akar || "", { type: "textarea" })}
+    ${fld("kegiatan", "Kegiatan pengendalian", t.kegiatan, { type: "textarea", req: true, ph: "Menambah formulir dan pengingat asesmen ulang Morse di e-RM" })}
+    <div class="fg fg2">${fld("opsi", "Pilihan penanganan (Pasal 15)", t.opsi, { type: "select", blank: false, opts: OPSI })}${fld("pj", "Penanggung jawab", t.pj, { req: true, ph: "Kepala Ruang dan Tim SIMRS" })}</div>
+    <div class="fg fg2">${fld("indikator", "Indikator keberhasilan (output)", t.indikator, { req: true, ph: "Kepatuhan asesmen ulang ≥ 90%" })}${fld("target", "Target waktu", t.target, { type: "select", req: true, opts: twOpts(+S.f.tahun) })}</div>
+    <div class="fg fg2">${fld("Kt", "Estimasi K setelah tindakan", t.Kt, { type: "select", opts: KOPTS })}${fld("Dt", "Estimasi D setelah tindakan", t.Dt, { type: "select", opts: DOPTS })}</div>
+    <div class="calc" id="tPrev"></div>`,
+    { readOnly: ro, buttons: [id ? { v: "del", t: "Hapus", danger: true } : null, { v: "save", t: "Simpan", pri: true }],
+      after: (b) => { const upd = () => { const g = (n) => b.querySelector(`[name="${n}"]`)?.value; const r = S.risks[g("riskId")]; const sc = g("Kt") && g("Dt") ? g("Kt") * g("Dt") : 0; const mx = r ? seleraMaks(r.unitId, r.tahun) : 12; $("#tPrev", b).innerHTML = r ? `Residu sekarang ${lvBadge(res(r))} → target ${sc ? lvBadge(sc) : "–"} <span class="spacer"></span>${sc ? (sc <= mx ? `<span class="tag ok">Di bawah selera ≤ ${mx}</span>` : `<span class="tag bad">Masih di atas selera ≤ ${mx}: tambah kegiatan atau eskalasi</span>`) : "Estimasi dihitung dengan anggapan RTP terlaksana 100%."}` : "Pilih risiko."; }; b.addEventListener("change", upd); upd(); },
+      onSave: async (v, f) => {
+        if (v === "del") { if (!confirm("Hapus RTP ini?")) return false; await del("rtps", id); return; }
+        const r = S.risks[f.riskId]; if (!r || !f.kegiatan || !f.pj || !f.indikator || !f.target) { toast("Lengkapi kolom bertanda *."); return false; }
+        await put("rtps", id || uid(), Object.assign({}, t, { riskId: f.riskId, unitId: r.unitId, akar: f.akar, kegiatan: f.kegiatan, opsi: f.opsi, pj: f.pj, indikator: f.indikator, target: f.target, Kt: f.Kt ? +f.Kt : null, Dt: f.Dt ? +f.Dt : null, createdAt: t.createdAt || new Date().toISOString() }));
+        toast("RTP disimpan.");
+      } });
+}
+function openMonitor(id) {
+  const t = S.rtps[id], key = pkey(S.f.tahun, S.f.tw), m = (t.monitor || {})[key] || {};
+  openModal(`Realisasi RTP · ${plabel(key)}`, `<div class="calc" style="margin-bottom:12px"><span><b>${esc(S.risks[t.riskId]?.kode || "")}</b> ${esc(t.kegiatan)}</span><span class="spacer"></span><span class="small">Target ${plabel(t.target)}</span></div>
+    ${fld("status", "Realisasi kegiatan", m.status, { type: "select", req: true, opts: ["Sudah", "Belum"], hint: "Pilih Sudah bila kegiatan terlaksana. Capaian indikator yang belum memenuhi target ditulis di hambatan." })}
+    ${fld("capaian", "Capaian indikator", m.capaian, { ph: "Kepatuhan asesmen ulang 72% (target 90%)" })}
+    ${fld("hambatan", "Hambatan / kendala", m.hambatan, { type: "textarea" })}
+    ${fld("tindak", "Tindak lanjut / rencana perbaikan", m.tindak, { type: "textarea" })}`,
+    { onSave: async (v, f) => { if (!f.status) { toast("Pilih status realisasi."); return false; } const o = JSON.parse(JSON.stringify(t)); o.monitor = o.monitor || {}; o.monitor[key] = { status: f.status, capaian: f.capaian, hambatan: f.hambatan, tindak: f.tindak, at: new Date().toISOString() }; await put("rtps", id, o); toast("Realisasi dicatat."); } });
+}
+
+/* ---- Peristiwa ---- */
+function openEvent(id) {
+  const e = id ? S.events[id] : { unitId: isL1() && S.me.unitId ? S.me.unitId : (S.f.unit !== "all" ? S.f.unit : ""), jenis: "", sik: "" };
+  const ro = id ? !canEditUnit(e.unitId) : false;
+  const rk = Object.entries(S.risks).filter(([, r]) => !e.unitId || r.unitId === e.unitId);
+  openModal(id ? "Peristiwa risiko" : "Catat peristiwa", `
+    <div class="fg fg3">${fld("unitId", "Unit kerja", e.unitId, { type: "select", req: true, opts: unitOpts(!id) })}${fld("jenis", "Jenis", e.jenis, { type: "select", req: true, opts: JENIS, hint: "KPCS: kondisi berbahaya · KNC: belum ke pasien · KTC: ke pasien, tidak cedera · KTD: cedera · Sentinel: kematian/cedera berat" })}${fld("waktuKejadian", "Waktu kejadian", e.waktuKejadian, { type: "datetime-local", req: true })}</div>
+    ${fld("uraian", "Uraian peristiwa / insiden", e.uraian, { type: "textarea", req: true })}
+    <div class="fg fg3">${fld("lokasi", "Lokasi", e.lokasi)}${fld("D", "Skor dampak awal (D)", e.D, { type: "select", req: true, opts: DOPTS })}${fld("riskId", "Kode risiko terkait (bila ada)", e.riskId, { type: "select", opts: rk.map(([rid, r]) => [rid, `${r.kode || "(tanpa kode)"} · ${r.peristiwa}`]) })}</div>
+    ${fld("tindakan", "Tindakan segera yang diambil", e.tindakan, { type: "textarea" })}
+    ${fld("koreksi", "Tindakan koreksi jangka panjang", e.koreksi, { type: "textarea" })}
+    ${fld("signifikan", "Kejadian risiko signifikan (wajib dilaporkan ke Direktur dan UMR ≤ 1×24 jam)", e.signifikan, { type: "checkbox" })}
+    <div class="fg fg2">${fld("waktuLapor", "Waktu dilaporkan ke Direktur dan UMR", e.waktuLapor, { type: "datetime-local" })}${fld("sik", "Dilaporkan ke SIK (e-report Kemenkes)?", e.sik, { type: "select", opts: ["Ya", "Belum", "Tidak wajib"], hint: "Wajib untuk KTD dan Sentinel (Pasal 17 ayat 5)." })}</div>`,
+    { readOnly: ro, buttons: [id ? { v: "del", t: "Hapus", danger: true } : null, { v: "save", t: "Simpan", pri: true }],
+      onSave: async (v, f) => {
+        if (v === "del") { if (!confirm("Hapus catatan peristiwa ini?")) return false; await del("events", id); return; }
+        if (!f.unitId || !f.jenis || !f.waktuKejadian || !f.uraian || !f.D) { toast("Lengkapi kolom bertanda *."); return false; }
+        if (f.waktuLapor && new Date(f.waktuLapor) < new Date(f.waktuKejadian)) { toast("Waktu lapor tidak boleh sebelum waktu kejadian."); return false; }
+        const o = Object.assign({}, e, f, { D: +f.D, createdAt: e.createdAt || new Date().toISOString() });
+        if (!o.sik) o.sik = wajibSIK(o) ? "Belum" : "Tidak wajib";
+        await put("events", id || uid(), o);
+        toast(wajib24(o) && !ok24(o) ? "Disimpan. Ingat: wajib dilaporkan ke Direktur dan UMR ≤ 1×24 jam." : "Peristiwa dicatat.");
+      } });
+}
+
+/* ---- Laporan unit (Lampiran 9) ---- */
+function openReport(unitId) {
+  const key = pkey(S.f.tahun, S.f.tw), rid = `${unitId}_${key}`, rep = S.reports[rid] || {}, s = unitSummary(unitId, S.f.tahun, S.f.tw);
+  const ro = !canEditUnit(unitId) || rep.status === "Dikirim";
+  const sum = `<div class="kpis">${kpi(s.merah, "Risiko merah", "Sangat Tinggi")}${kpi(s.late, "RTP terlambat", "")}${kpi(`${s.done.length}/${s.due.length}`, "Realisasi RTP", s.due.length ? pct(s.done.length, s.due.length) + "%" : "Tidak ada yang jatuh tempo")}${kpi(s.ev.length, "Peristiwa", plabel(key))}${kpi(s.sikN ? `${s.sikOk}/${s.sikN}` : "–", "Pelaporan ke SIK", "KTD/Sentinel")}</div>`;
+  openModal(`Laporan ${unitName(unitId)} · ${plabel(key)}`, `<p class="small muted" style="margin-top:0">Lampiran 9 · Ditujukan kepada Pemilik Risiko, tembusan UMR. Angka di bawah dihitung otomatis.</p>${sum}
+    <p><b>Risiko teridentifikasi:</b> ${s.rs.length} · <b>Prioritas (di atas selera):</b> ${s.prio}</p>
+    <p><b>Tiga insiden utama:</b> ${s.topEv.length ? s.topEv.map(([, e]) => `${esc(e.jenis)}: ${esc(e.uraian)} (${fmtDate(e.waktuKejadian)})`).join("; ") : "Tidak ada"}</p>
+    ${fld("hambatan", "Permasalahan / hambatan utama", rep.hambatan || s.rt.map(([, x]) => (x.monitor || {})[key]?.hambatan).filter(Boolean).join("; "), { type: "textarea", req: true })}
+    ${fld("rencana", "Rencana tindak lanjut triwulan berikutnya", rep.rencana, { type: "textarea", req: true })}
+    ${fld("rekomendasi", "Rekomendasi utama", rep.rekomendasi, { type: "textarea" })}
+    ${rep.status === "Dikirim" ? `<p class="small muted">Dikirim ${fmtDT(rep.sentAt)} oleh ${esc(personName(rep.sentBy))}.</p>` : ""}`,
+    { readOnly: ro, buttons: [{ v: "save", t: "Simpan draf" }, { v: "kirim", t: "Kirim laporan", pri: true }],
+      onSave: async (v, f) => {
+        if (v === "kirim" && (!f.hambatan || !f.rencana)) { toast("Isi hambatan dan rencana sebelum mengirim."); return false; }
+        const o = Object.assign({}, rep, { unitId, periode: key, hambatan: f.hambatan, rencana: f.rencana, rekomendasi: f.rekomendasi, status: v === "kirim" ? "Dikirim" : "Draf" });
+        if (v === "kirim") { o.sentAt = new Date().toISOString(); o.sentBy = S.me.id || "lokal"; o.angka = { risiko: s.rs.length, prioritas: s.prio, merah: s.merah, rtpDue: s.due.length, rtpDone: s.done.length, terlambat: s.late, peristiwa: s.ev.length }; }
+        await put("reports", rid, o); toast(v === "kirim" ? "Laporan dikirim ke Pemilik Risiko dan UMR." : "Draf laporan disimpan.");
+      } });
+}
+function openUMR() {
+  const key = pkey(S.f.tahun, S.f.tw), rid = `UMR_${key}`, rep = S.reports[rid] || {}, c = consolidated(S.f.tahun, S.f.tw);
+  const ro = !canValidate() || rep.status === "Dikirim";
+  const LVN = ["Sangat Tinggi (Merah)", "Tinggi (Kuning)", "Sedang (Hijau)", "Rendah (Biru)"], tot = c.rs.length;
+  openModal(`Laporan konsolidasi UMR · ${plabel(key)}`, `<p class="small muted" style="margin-top:0">Lampiran 10 · Ditujukan kepada Direktur. Bagian A–C terisi otomatis.</p>
+    <div class="kpis">${kpi(c.dist[0], "Risiko merah", "")}${kpi(c.late.length, "RTP terlambat", "")}${kpi(c.due.length ? pct(c.done.length, c.due.length) + "%" : "–", "Realisasi RTP", `${c.done.length} dari ${c.due.length}`)}${kpi(c.sik.length ? `${c.sikOk}/${c.sik.length}` : "–", "Pelaporan eksternal", "KTD/Sentinel ke Kemenkes")}</div>
+    <h3>A. Profil risiko rumah sakit</h3><p>Total risiko teridentifikasi: <b>${tot}</b>. ${LVN.map((n, i) => `${n}: ${c.dist[i]} (${tot ? pct(c.dist[i], tot) : 0}%)`).join(" · ")}</p>
+    <p><b>Lima risiko prioritas:</b> ${c.top.length ? c.top.map(([, r], i) => `${i + 1}. ${esc(r.kode || "")} ${esc(r.peristiwa)} (${esc(unitName(r.unitId))}, ${res(r)})`).join("; ") : "Tidak ada"}</p>
+    <h3>B. Evaluasi pengendalian</h3><p>${c.perUnit.length ? `Realisasi tertinggi: ${esc(c.perUnit[0][0])} (${c.perUnit[0][1]}%). Terendah: ${esc(c.perUnit[c.perUnit.length - 1][0])} (${c.perUnit[c.perUnit.length - 1][1]}%).` : "Tidak ada RTP yang jatuh tempo pada periode ini."}</p>
+    ${fld("hambatan", "Pola hambatan lintas unit", rep.hambatan || c.hamb.join("; "), { type: "textarea" })}
+    <h3>C. Kejadian risiko signifikan</h3><p>${c.signif.length ? c.signif.map(([, e]) => `${esc(e.jenis)} · ${esc(unitName(e.unitId))}: ${esc(e.uraian)}`).join("<br>") : "Tidak ada."}</p>
+    <h3>D. Rekomendasi UMR</h3>${fld("rekomendasi", "Rekomendasi untuk Direktur", rep.rekomendasi, { type: "textarea", req: true })}
+    ${rep.status === "Dikirim" ? `<p class="small muted">Dikirim ${fmtDT(rep.sentAt)}.</p>` : ""}`,
+    { readOnly: ro, buttons: [{ v: "save", t: "Simpan draf" }, { v: "kirim", t: "Kirim ke Direktur", pri: true }],
+      onSave: async (v, f) => {
+        if (v === "kirim" && !f.rekomendasi) { toast("Isi rekomendasi sebelum mengirim."); return false; }
+        const o = Object.assign({}, rep, { periode: key, unitId: "UMR", hambatan: f.hambatan, rekomendasi: f.rekomendasi, status: v === "kirim" ? "Dikirim" : "Draf" });
+        if (v === "kirim") { o.sentAt = new Date().toISOString(); o.sentBy = S.me.id || "lokal"; }
+        await put("reports", rid, o); toast(v === "kirim" ? "Laporan konsolidasi dikirim ke Direktur." : "Draf disimpan.");
+      } });
+}
+
+/* ---- Temuan SPI ---- */
+function openAudit(id) {
+  const a = id ? S.audits[id] : { unitId: S.f.unit !== "all" ? S.f.unit : "", status: "Terbuka", prioritas: "Sedang", tahun: S.f.tahun };
+  const spi = canAudit(), unitResp = !spi && canEditUnit(a.unitId);
+  const rk = Object.entries(S.risks).filter(([, r]) => !a.unitId || r.unitId === a.unitId);
+  openModal(id ? "Temuan SPI" : "Catat temuan SPI", `
+    <div class="fg fg3">${fld("unitId", "Unit kerja", a.unitId, { type: "select", req: true, opts: unitOpts() })}${fld("aspek", "Aspek yang dinilai", a.aspek, { type: "select", req: true, opts: ASPEK })}${fld("riskId", "Risiko terkait (opsional)", a.riskId, { type: "select", opts: rk.map(([rid, r]) => [rid, `${r.kode || "(tanpa kode)"} · ${r.peristiwa}`]) })}</div>
+    ${fld("temuan", "Temuan / kondisi", a.temuan, { type: "textarea", req: true, ph: "Skor residu IBS-01 diturunkan tanpa bukti efektivitas pengendalian." })}
+    ${fld("rekomendasi", "Rekomendasi", a.rekomendasi, { type: "textarea", req: true })}
+    <div class="fg fg3">${fld("prioritas", "Prioritas", a.prioritas, { type: "select", blank: false, opts: ["Tinggi", "Sedang", "Rendah"] })}${fld("batas", "Batas tindak lanjut", a.batas, { type: "date" })}${fld("status", "Status", a.status, { type: "select", blank: false, opts: ["Terbuka", "Dalam tindak lanjut", "Selesai"] })}</div>
+    <fieldset class="fs"><legend>Tanggapan unit</legend>${fld("tanggapan", "Tanggapan dan tindak lanjut unit", a.tanggapan, { type: "textarea" })}</fieldset>`,
+    { readOnly: !spi && !unitResp, buttons: [id && spi ? { v: "del", t: "Hapus", danger: true } : null, { v: "save", t: unitResp ? "Kirim tanggapan" : "Simpan", pri: true }],
+      after: (b) => { if (unitResp) b.querySelectorAll("[name]").forEach((el) => { if (el.name !== "tanggapan") el.disabled = true; }); },
+      onSave: async (v, f) => {
+        if (v === "del") { if (!confirm("Hapus temuan ini?")) return false; await del("audits", id); return; }
+        if (unitResp) { await put("audits", id, Object.assign({}, a, { tanggapan: f.tanggapan, status: a.status === "Terbuka" ? "Dalam tindak lanjut" : a.status, respondedAt: new Date().toISOString() })); toast("Tanggapan dikirim ke SPI."); return; }
+        if (!f.unitId || !f.temuan || !f.rekomendasi || !f.aspek) { toast("Lengkapi kolom bertanda *."); return false; }
+        await put("audits", id || uid(), Object.assign({}, a, f, { tahun: a.tahun || S.f.tahun, createdAt: a.createdAt || new Date().toISOString(), by: a.by || S.me.id || "lokal" })); toast("Temuan disimpan.");
+      } });
+}
+
+/* ========== Unduhan ========== */
+async function saveFile(filename, data) {
+  if (DL) { try { await DL.save({ filename, data }); return; } catch (e) { if (e?.code === "declined") return; if (e?.code === "rate_limited") { toast("Tunggu sebentar, lalu coba unduh lagi."); return; } } }
+  toast("Unduhan tidak tersedia di tampilan ini.");
+}
+const csvCell = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+function csvRegister() {
+  const rs = risksY().sort((a, b) => res(b[1]) - res(a[1]));
+  const hd = ["No", "Unit", "Sasaran", "Kode", "Kategori", "Uraian risiko", "K", "D", "Level inheren", "Warna", "Pengendalian", "Efektivitas", "K residu", "D residu", "Level residu", "Selera unit", "Ket", "Status", "RCA akar penyebab"];
+  const rows = rs.map(([, r], i) => [i + 1, unitName(r.unitId), r.sasaran, r.kode, r.kategori, uraian(r), r.K, r.D, `${inh(r)} ${lvl(inh(r)).n}`, warna(lvl(inh(r)).i), r.pengendalian, r.efektivitas, r.Kr || r.K, r.Dr || r.D, `${res(r)} ${lvl(res(r)).n}`, seleraMaks(r.unitId, r.tahun), isPrio(r) ? "Prioritas" : "Tidak", r.status || "Draf", r.rca?.akar || ""]);
+  saveFile(`Register_Risiko_${S.f.tahun}${S.f.unit !== "all" ? "_" + (S.units[S.f.unit]?.singkatan || "unit") : ""}.csv`, "\ufeff" + [hd, ...rows].map((r) => r.map(csvCell).join(",")).join("\n"));
+}
+const LOGO_SRC = document.querySelector(".brand img").src;
+function docShell(title, inner) {
+  return `<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><title>${esc(title)}</title><style>body{font:12pt/1.5 "Times New Roman",serif;color:#000;max-width:800px;margin:24px auto;padding:0 20px}.kop{display:flex;gap:14px;align-items:center;border-bottom:3px solid #000;padding-bottom:8px;margin-bottom:16px}.kop img{width:64px}.kop b{font-size:15pt}table{border-collapse:collapse;width:100%;font-size:10pt;margin:8px 0}th,td{border:1px solid #444;padding:4px 6px;text-align:left;vertical-align:top}th{background:#eee}h3{font-size:12pt;margin:14px 0 4px}.ttd{display:flex;justify-content:space-between;margin-top:40px;text-align:center}.ttd div{width:45%}@media print{body{margin:0}}</style></head><body><div class="kop"><img alt="" src="${LOGO_SRC}"><div>PEMERINTAH KOTA SEMARANG<br><b>RUMAH SAKIT DAERAH K.R.M.T. WONGSONEGORO</b><br><small>Jalan Fatmawati No. 1 Semarang 50272</small></div></div>${inner}</body></html>`;
+}
+function dlReport(unitId) {
+  const key = pkey(S.f.tahun, S.f.tw), rep = S.reports[`${unitId}_${key}`] || {}, s = unitSummary(unitId, S.f.tahun, S.f.tw);
+  const reg = s.rs.map(([, r], i) => `<tr><td>${i + 1}</td><td>${esc(r.sasaran)}</td><td>${esc(r.kode)}</td><td>${esc(uraian(r))}</td><td>${r.K}</td><td>${r.D}</td><td>${inh(r)} ${lvl(inh(r)).n}</td><td>${warna(lvl(inh(r)).i)}</td><td>${res(r)} ${lvl(res(r)).n}</td><td>${isPrio(r) ? "Prioritas" : "Tidak"}</td></tr>`).join("");
+  const rtp = s.rt.map(([, x], i) => { const m = (x.monitor || {})[key]; return `<tr><td>${i + 1}</td><td>${esc(S.risks[x.riskId]?.kode)}</td><td>${esc(x.kegiatan)}</td><td>${esc(x.pj)}</td><td>${plabel(x.target)}</td><td>${m?.status === "Sudah" ? "√" : ""}</td><td>${m && m.status !== "Sudah" ? "√" : ""}</td><td>${esc(m?.hambatan)}</td><td>${esc(m?.tindak)}</td></tr>`; }).join("");
+  const ev = s.ev.map(([, e], i) => `<tr><td>${i + 1}</td><td>${fmtDate(e.waktuKejadian)}</td><td>${esc(e.jenis)}: ${esc(e.uraian)}</td><td>${esc(e.lokasi)}</td><td>${esc(e.D)}</td><td>${esc(e.tindakan)}</td><td>${esc(e.koreksi)}</td><td>${esc(S.risks[e.riskId]?.kode)}</td><td>${esc(e.sik)}</td></tr>`).join("");
+  const inner = `<p>Perihal: Laporan Manajemen Risiko ${plabel(key)}<br>Yth. Pemilik Risiko (${esc(S.units[unitId]?.pemilik || "Kepala Unit")})<br>di Tempat</p><p>Berdasarkan Pedoman Manajemen Risiko RSD K.R.M.T Wongsonegoro, bersama ini kami sampaikan Laporan Manajemen Risiko Unit ${esc(unitName(unitId))} ${plabel(key)} dengan ringkasan sebagai berikut:</p>
+  <h3>Ringkasan eksekutif</h3><ol><li>Jumlah risiko merah (Sangat Tinggi): ${s.merah}</li><li>Jumlah RTP terlambat: ${s.late}</li><li>Tiga insiden utama: ${s.topEv.map(([, e]) => esc(e.jenis + ": " + e.uraian)).join("; ") || "tidak ada"}</li><li>Status kepatuhan pelaporan ke SIK: ${s.sikN ? `${s.sikOk} dari ${s.sikN}` : "tidak ada KTD/Sentinel"}</li><li>Rekomendasi utama: ${esc(rep.rekomendasi || "–")}</li></ol>
+  <ol><li>Jumlah risiko teridentifikasi: ${s.rs.length} risiko</li><li>Jumlah risiko prioritas (di atas selera risiko): ${s.prio} risiko</li><li>Realisasi RTP: ${s.due.length} kegiatan jatuh tempo, ${s.done.length} terealisasi (${s.due.length ? pct(s.done.length, s.due.length) : 0}%)</li><li>Peristiwa risiko: ${s.ev.length} kejadian</li><li>Permasalahan/hambatan: ${esc(rep.hambatan || "–")}</li><li>Rencana tindak lanjut: ${esc(rep.rencana || "–")}</li></ol>
+  <p>Demikian laporan ini dibuat untuk menjadi perhatian dan bahan tindak lanjut.</p><p style="text-align:right">Semarang, ${rep.sentAt ? fmtDate(rep.sentAt) : "………………"}</p>
+  <div class="ttd"><div>Mengetahui<br>Pemilik Risiko<br><br><br><br>Nama Lengkap<br>NIP/NIK</div><div><br>Pengelola Risiko Unit<br><br><br><br>Nama Lengkap<br>NIP/NIK</div></div>
+  <h3>Lampiran 1. Register Risiko (Lampiran 4)</h3><table><tr><th>No</th><th>Sasaran</th><th>Kode</th><th>Uraian risiko</th><th>K</th><th>D</th><th>Level</th><th>Warna</th><th>Residu</th><th>Ket.</th></tr>${reg}</table>
+  <h3>Lampiran 2. Status RTP (Lampiran 7)</h3><table><tr><th>No</th><th>Kode</th><th>Rencana tindak</th><th>PJ</th><th>Target</th><th>Sudah</th><th>Belum</th><th>Hambatan</th><th>Tindak lanjut</th></tr>${rtp}</table>
+  <h3>Lampiran 3. Catatan peristiwa risiko (Lampiran 8)</h3><table><tr><th>No</th><th>Tanggal</th><th>Uraian</th><th>Lokasi</th><th>D</th><th>Tindakan segera</th><th>Koreksi</th><th>Kode</th><th>SIK</th></tr>${ev}</table>`;
+  saveFile(`Laporan_${(S.units[unitId]?.singkatan || "Unit")}_${key}.html`, docShell("Laporan triwulan unit", inner));
+}
+function dlUMR() {
+  const key = pkey(S.f.tahun, S.f.tw), rep = S.reports[`UMR_${key}`] || {}, c = consolidated(S.f.tahun, S.f.tw), tot = c.rs.length;
+  const LVN = ["Sangat Tinggi (Merah)", "Tinggi (Kuning)", "Sedang (Hijau)", "Rendah (Biru)"];
+  const inner = `<p>Perihal: Laporan Konsolidasi Manajemen Risiko ${plabel(key)}<br>Yth. Direktur RSD K.R.M.T Wongsonegoro<br>di Tempat</p>
+  <h3>Ringkasan eksekutif</h3><ol><li>Jumlah risiko merah (Sangat Tinggi): ${c.dist[0]}</li><li>Jumlah RTP terlambat: ${c.late.length}</li><li>Tiga insiden utama: ${c.topEv.map(([, e]) => esc(e.jenis + " · " + unitName(e.unitId) + ": " + e.uraian)).join("; ") || "tidak ada"}</li><li>Kepatuhan pelaporan eksternal (Kemenkes): ${c.sik.length ? `${c.sikOk} dari ${c.sik.length}` : "tidak ada KTD/Sentinel"}</li><li>Rekomendasi utama untuk Direktur: ${esc(rep.rekomendasi || "–")}</li></ol>
+  <h3>A. Profil risiko rumah sakit</h3><p>Total risiko teridentifikasi: ${tot} risiko.</p><table><tr><th>Level</th><th>Jumlah</th><th>%</th></tr>${LVN.map((n, i) => `<tr><td>${n}</td><td>${c.dist[i]}</td><td>${tot ? pct(c.dist[i], tot) : 0}%</td></tr>`).join("")}</table>
+  <p>Top 5 risiko prioritas:</p><table><tr><th>No</th><th>Kode</th><th>Risiko</th><th>Unit</th><th>Residu</th></tr>${c.top.map(([, r], i) => `<tr><td>${i + 1}</td><td>${esc(r.kode)}</td><td>${esc(r.peristiwa)}</td><td>${esc(unitName(r.unitId))}</td><td>${res(r)} ${lvl(res(r)).n}</td></tr>`).join("")}</table>
+  <h3>B. Evaluasi pengendalian</h3><p>Realisasi RTP seluruh unit: ${c.due.length ? pct(c.done.length, c.due.length) : 0}% (dari ${c.due.length} RTP jatuh tempo).</p>${c.perUnit.length ? `<p>Unit dengan realisasi tertinggi: ${esc(c.perUnit[0][0])} (${c.perUnit[0][1]}%). Terendah: ${esc(c.perUnit[c.perUnit.length - 1][0])} (${c.perUnit[c.perUnit.length - 1][1]}%).</p>` : ""}<p>Ringkasan hambatan utama: ${esc(rep.hambatan || "–")}</p>
+  <h3>C. Kejadian risiko signifikan</h3><table><tr><th>Tanggal</th><th>Unit</th><th>Jenis</th><th>Uraian</th><th>Tindakan</th></tr>${c.signif.map(([, e]) => `<tr><td>${fmtDate(e.waktuKejadian)}</td><td>${esc(unitName(e.unitId))}</td><td>${esc(e.jenis)}</td><td>${esc(e.uraian)}</td><td>${esc(e.tindakan)}</td></tr>`).join("")}</table>
+  <h3>D. Rekomendasi UMR</h3><p>${esc(rep.rekomendasi || "–")}</p><p style="text-align:right">Semarang, ${rep.sentAt ? fmtDate(rep.sentAt) : "………………"}</p>
+  <div class="ttd"><div>Mengetahui,<br>Ketua Komite Mutu<br><br><br><br>Nama Lengkap<br>NIP/NIK</div><div><br>Ketua Sub Unit Manajemen Risiko (UMR)<br><br><br><br>Nama Lengkap<br>NIP/NIK</div></div>`;
+  saveFile(`Laporan_Konsolidasi_UMR_${key}.html`, docShell("Laporan konsolidasi UMR", inner));
+}
+
+/* ========== Event handlers ========== */
+const ACT = {
+  go: (d) => { S.view = d.v; window.scrollTo(0, 0); render(); },
+  heat: (d) => { S.reg = { k: d.k, d: d.d }; S.view = "register"; render(); },
+  clearheat: () => { S.reg = {}; render(); },
+  unitfilter: (d) => { S.f.unit = d.id; render(); },
+  openrisk: (d) => openRisk(d.id), newrisk: () => openRisk(null), editrca: (d) => openRCA(d.id),
+  newrtp: (d) => openRTP(null, d.risk), editrtp: (d) => openRTP(d.id), monitor: (d) => openMonitor(d.id),
+  newevent: () => openEvent(null), editevent: (d) => openEvent(d.id),
+  editkonteks: (d) => openKonteks(d.id), editunit: (d) => openUnit(d.id),
+  editreport: (d) => openReport(d.id), editumr: () => openUMR(), dlreport: (d) => dlReport(d.id), dlumr: () => dlUMR(), csvreg: () => csvRegister(),
+  newaudit: () => openAudit(null), editaudit: (d) => openAudit(d.id),
+  pickrole: (d) => { if (S.mode === "local") { toast("Di mode lokal, pilih peran dari menu Coba sebagai."); return; } openRole(d.id); },
+  savecfg: async () => { const t = +$("#cfgTahun").value, a = $("#cfgAcuan").value, s = +$("#cfgSelera").value; if (!t || !s) return; await putCfg(Object.assign({}, S.cfg, { tahun: t, acuan: a, seleraDefault: s })); toast("Acuan penilaian disimpan."); },
+  delcontoh: async () => { if (!confirm("Hapus semua data contoh? Data riil tidak terpengaruh.")) return; for (const c of COLS) for (const [id, x] of Object.entries(S[c])) if (x.contoh) await del(c, id); toast("Data contoh dihapus."); },
+};
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-act]"); if (!a || a.tagName === "SELECT" || (a.tagName === "INPUT")) return;
+  e.preventDefault(); const f = ACT[a.dataset.act]; if (f) f(a.dataset, a);
+});
+document.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.filter) { S.f[t.dataset.filter] = t.dataset.filter === "unit" ? t.value : +t.value; render(); return; }
+  if (t.dataset.act === "regstatus") { S.reg.status = t.value; render(); }
+  if (t.dataset.act === "regprio") { S.reg.prio = t.checked; render(); }
+  if (t.dataset.act === "localrole") { S.me.role = t.value; S.ui.localRole = t.value; render(); }
+  if (t.dataset.act === "localunit") { S.me.unitId = t.value; render(); }
+});
+init();
+</script>
+</body>
+</html>
